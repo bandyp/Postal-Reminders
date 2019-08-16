@@ -1,0 +1,20 @@
+<html>
+    <head>
+        
+    </head>
+    <body>
+        {% for incident in incidents %}
+            {{incident.reminder_category}}
+            {{incident.incident_type}}
+            {{incident.incident_description}}
+            {{incident.date_reported}}
+            {{incident.reported_by}}
+            {{incident.comments}}
+            {{incident.street_name}}
+            {{incident.post_code}}
+            {{incident.walk_no}}
+            {{incident.depot}}
+            {{incident.management_aware}}
+        {% endfor %}
+    </body>
+</html>
