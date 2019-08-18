@@ -1,8 +1,5 @@
-<html>
-    <head>
-        
-    </head>
-    <body>
+{% extends 'index.html' %}
+    {% block content %}
         {% for incident in incidents %}
             {{incident.reminder_category}}
             {{incident.incident_type}}
@@ -16,5 +13,28 @@
             {{incident.depot}}
             {{incident.management_aware}}
         {% endfor %}
-    </body>
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Royal Mail</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="">Hazard</a></li>
+        <li><a href="">Incident</a></li>
+        <li><a href="">Request</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Dropdown Trigger -->
+  <div style="margin:50vw;" class="incident_button">
+  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Incident</a>
+
+  <!-- Dropdown Structure -->
+  <ul id='dropdown1' class='dropdown-content'>
+    <li><a href="#!">Report Hazard</a></li>
+    <li><a href="#!">Report Incident</a></li>
+    <li><a href="#!">Customer Request</a></li>
+  </ul>
+  </div>
+    {% endblock %}
+</body>
+
 </html>
