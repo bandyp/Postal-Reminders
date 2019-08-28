@@ -1,40 +1,87 @@
-{% extends 'index.html' %}
-    {% block content %}
-        {% for incident in incidents %}
-            {{incident.reminder_category}}
-            {{incident.incident_type}}
-            {{incident.incident_description}}
-            {{incident.date_reported}}
-            {{incident.reported_by}}
-            {{incident.comments}}
-            {{incident.street_name}}
-            {{incident.post_code}}
-            {{incident.walk_no}}
-            {{incident.depot}}
-            {{incident.management_aware}}
-        {% endfor %}
-  <nav>
-    <div class="nav-wrapper">
-      <a href="#" class="brand-logo">Royal Mail</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="">Hazard</a></li>
-        <li><a href="">Incident</a></li>
-        <li><a href="">Request</a></li>
-      </ul>
-    </div>
-  </nav>
-  <!-- Dropdown Trigger -->
-  <div style="margin:50vw;" class="incident_button">
-  <a class='dropdown-button btn' href='#' data-activates='dropdown1'>Incident</a>
-
-  <!-- Dropdown Structure -->
-  <ul id='dropdown1' class='dropdown-content'>
-    <li><a href="#!">Report Hazard</a></li>
-    <li><a href="#!">Report Incident</a></li>
-    <li><a href="#!">Customer Request</a></li>
-  </ul>
+{% extends 'base.html' %} 
+{% block content %} 
+  {% for incident in incidents %} 
+    {{incident.reminder_category}} 
+    {{incident.incident_type}} 
+    {{incident.incident_description}} 
+    {{incident.date_reported}} 
+    {{incident.reported_by}} 
+    {{incident.comments}} 
+    {{incident.street_name}}
+    {{incident.post_code}} 
+    {{incident.walk_no}} 
+    {{incident.depot}} 
+    {{incident.management_aware}} 
+{% endfor %}
+ 
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo">Royal Mail</a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="">Hazard</a></li>
+      <li><a href="">Incident</a></li>
+      <li><a href="">Request</a></li>
+    </ul>
   </div>
-    {% endblock %}
-</body>
+</nav>
 
-</html>
+  <div class="col s12 m7">
+    <h2 class="header">Route Reminders</h2>
+    <div class="card horizontal">
+      <div class="card-image">
+         <table>
+           {% for incident in incidents %} 
+       <p>{{incident.walk_no}}, {{incident.depot}}</p>
+        <thead>
+          <tr>
+              <th>Address</th>
+              <th>Reminder</th>
+              <th>Description</th>
+              <th>Date/Staff</th>
+              <th>Comments</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>{{incident.street_name}}, {{incident.post_code}}</td>
+            <td>{{incident.reminder_category}}, {{incident.incident_type}}</td>
+            <td>{{incident.incident_description}}</td>
+            <td>{{incident.date_reported}} by {{incident.reported_by}}</td>
+            <td>{{incident.comments}}</td>
+          </tr>
+          {% endfor %}
+          <tr>
+
+          </tr>
+          <tr>
+
+          </tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="card-stacked">
+        <div class="card-content">
+          <p>Enter new reminders, edit or delete old reminders</p>
+        </div>
+        <div class="card-action">
+          <a href="#">Expand route</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+<div class="fixed-action-btn toolbar">
+    <a class="btn-floating btn-large red">
+      <i class="large material-icons">mode_edit</i>
+    </a>
+    <ul>
+      <li class="waves-effect waves-light red label"><a href="#!">HAZARD</a></li>
+      <li class="waves-effect waves-light teal label"><a href="#!">ACCESS</a></li>
+      <li class="waves-effect waves-light green label"><a href="#!">REQUEST</a></li>
+    </ul>
+  </div>  
+  
+
+{% endblock %}
+

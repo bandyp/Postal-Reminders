@@ -12,7 +12,11 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_incidents')
 def get_incidents():
-    return render_template("incidents.html", incidents=mongo.db.incidents.find())
+    return render_template("incidents.html")
+
+@app.route('/add_incident')
+def add_incident():
+    return render_template("addincident.html")
 
 
 if __name__ == '__main__':
