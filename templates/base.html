@@ -9,7 +9,6 @@
     <!-- Framework CSS -->
     <link rel="stylesheet" href="style.css" type="text/css" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.00.2/css/materialize.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css" integrity="sha256-lJMsOpLg+Hdzs297wkRxAhSlJdXcuHHyo/JoB4uI7uw=" crossorigin="anonymous" />
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}" type="text/css"/>
 
@@ -18,11 +17,28 @@
 
 <body>
     {% block content %} {% endblock %}
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
     <script type="text/javascipt">
         $('.dropdown-button').dropdown({ inDuration: 300, outDuration: 225, constrainWidth: false, // Does not change width of dropdown to that of the activator hover: true, // Activate on hover gutter: 0, // Spacing from edge belowOrigin: false, // Displays
         dropdown below the button alignment: 'left', // Displays dropdown with edge aligned to the left of button stopPropagation: false // Stops event propagation } );
+          $(document).ready(function() {
+    $('select').material_select();
+  });
+    $('.datepicker').pickadate({
+    selectMonths: true, // Creates a dropdown to control month
+    selectYears: 15, // Creates a dropdown of 15 years to control year,
+    today: 'Today',
+    clear: 'Clear',
+    close: 'Ok',
+    closeOnSelect: false // Close upon selecting a date,
+    container: undefined, // ex. 'body' will append picker to body
+  });
+  document.getElementById("matfix").addEventListener("click", function(e) {
+	e.stopPropagation();
+});
+
     </script>
 </body>
 

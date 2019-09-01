@@ -12,11 +12,25 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/get_incidents')
 def get_incidents():
-    return render_template("incidents.html")
+    return render_template("incidents.html", incidents=mongo.db.incidents.find())
 
-@app.route('/add_incident')
-def add_incident():
-    return render_template("addincident.html")
+@app.route('/add_hazard')
+def add_hazard():
+    return render_template("addhazard.html")
+    
+@app.route('/add_access')
+def add_access():
+    return render_template("addaccess.html")
+    
+@app.route('/add_request')
+def add_request():
+    return render_template("addrequest.html")
+
+@app.route('/insert_hazard', methods=['POST'])
+def insert_hazard():
+    incidents=mongo.db.incidents
+    incidents.insert_one(request.form.to.dict())
+    return redirect(url_for('get_incidents'))
 
 
 if __name__ == '__main__':

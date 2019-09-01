@@ -1,20 +1,86 @@
- {% extends 'index.html' %} {% block content %} 
- 
-  <div class="row">
-    <form action="" method="POST" class="col s12">
-      <div class="row">
-        <div class="input-field col s6">
-          <i class="material-icons prefix">account_circle</i>
-          <input id="icon_prefix" type="text" class="validate">
-          <label for="icon_prefix">First Name</label>
+{% extends 'base.html' %} {% block content %}
+<h3>Add Task</h3>
+<div class="row">
+    <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s4">
+                <i class="material-icons prefix">location_on</i>
+                <input id="number" type="text" class="validate">
+                <label for="number">House Number</label>
+            </div>
+            <div class="input-field col s6">
+                <i class="material-icons prefix">location_city</i>
+                <select id="street_name" name="street_name">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="1">Milverton Gn</option>
+                      <option value="2">Lemington Rd</option>
+                      <option value="3">Horace Brightman Cl</option>
+                      <option value="1">Lighthorn Rs</option>
+                      <option value="2">Morrel Cl</option>
+                      <option value="3">Quickswood</option>
+                      <option value="1">Willenhall Cl</option>
+                      <option value="2">Speedwell Cl</option>
+                      <option value="3">Sorrell Cl</option>
+                      <option value="1">Celandine Dv</option>
+                      <option value="2">Lucas Gardens</option>
+                      <option value="3">Freeman Av</option>
+                      <option value="3">Whitehorse Vale</option>
+                </select>
+                <label>Street Name</label>>
+            </div>
         </div>
-        <div class="input-field col s6">
-          <i class="material-icons prefix">phone</i>
-          <input id="icon_telephone" type="tel" class="validate">
-          <label for="icon_telephone">Telephone</label>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <select>
+                    <optgroup label="Animal">
+                        <option value="1">Dog snapping at mail</option>
+                        <option value="2">Loose Dog</option>
+                        <option value="3">Other</option>
+                    </optgroup>
+                    <optgroup label="Access">
+                        <option value="4">Unsafe Pathway</option>
+                        <option value="5">Contruction</option>
+                        <option value="6">Other</option>
+                    </optgroup>
+                    <optgroup label="People">
+                        <option value="7">Possible criminal activity</option>
+                        <option value="8">Aggressive/abusive behaviour</option>
+                        <option value="9">Other</option>
+                    </optgroup>
+                </select>
+                <label>Description</label>
+            </div>
+            
         </div>
-      </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="comments" name="comments" class="materialize-textarea" data-length="120"></textarea>
+                <label for="Comments">Comments</label>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="input-field col s6" id="matfix">
+                <i class="material-icons prefix">today</i>
+                <input id="due_date" name="due_date" type="text" class="datepicker">
+                <label for="icon_prefix">Due Date</label>
+            </div>
+
+            <div class="switch col s6">
+                <label>
+                    <input id="management_aware" name="management_aware" type="checkbox">
+                    <span class="lever"></span>
+                      Manager Aware
+                    </label>
+            </div>
+        </div>
+        <div class="row">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add Hazard
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
     </form>
-  </div>
-  
-  {% endblock %}
+</div>
+{% endblock %}

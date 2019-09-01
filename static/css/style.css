@@ -5,3 +5,7 @@
 .nav-wrapper {
     left: 50%;
 }
+
+.card-image {
+    max-width: 75%;
+}
