@@ -1,3 +1,7 @@
 .header {
     margin-left: 1rem;
 }
+
+.nav-wrapper {
+    left: 50%;
+}
