@@ -26,6 +26,14 @@ def add_access():
 def add_request():
     return render_template("addrequest.html")
 
+@app.route('/goto_home')
+def goto_home():
+    return render_template("incidents.html")
+    
+@app.route('/see_route')
+def see_route():
+    return render_template("route.html")
+
 @app.route('/insert_hazard', methods=['POST'])
 def insert_hazard():
     incidents=mongo.db.incidents
