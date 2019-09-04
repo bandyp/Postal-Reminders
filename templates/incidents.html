@@ -1,40 +1,28 @@
-{% extends 'base.html' %} 
-{% block content %} 
-  {% for incident in incidents %} 
-    {{incident.reminder_category}} 
-    {{incident.incident_type}} 
-    {{incident.incident_description}} 
-    {{incident.date_reported}} 
-    {{incident.reported_by}} 
-    {{incident.comments}}
-    {{incident.number}}
-    {{incident.street_name}}
-    {{incident.post_code}} 
-    {{incident.walk_no}} 
-    {{incident.depot}} 
-    {{incident.management_aware}} 
+{% extends 'base.html' %} {% block content %} {% for incident in incidents %} {{incident.reminder_category}} {{incident.incident_type}} {{incident.incident_description}} {{incident.date_reported}} {{incident.reported_by}} {{incident.comments}} {{incident.number}}
+{{incident.street_name}} {{incident.post_code}} {{incident.walk_no}} {{incident.depot}} {{incident.management_aware}}
 
- 
+
 <nav>
   <div class="nav-wrapper">
     <a href="#" class="brand-logo center">Royal Mail</a>
-    
   </div>
 </nav>
-  <div class="col s12 m7">
-    <h2 class="header center">Route Reminders</h2>
-    <div class="card vertical">
-      <div class="card-image">
-         <table>
+
+<div class="col s12 m7">
+  <h3 class="header center">Route Reminders</h3>
+  <div class="card vertical">
+    <div class="card-image">
+      <table>
         <thead>
           <tr>
-              <th>Address</th>
-              <th>Reminder</th>
-              <th>Description</th>
-              <th>Date/Staff</th>
-              <th>Comments</th>
+            <th>Address</th>
+            <th>Reminder</th>
+            <th>Description</th>
+            <th>Date/Staff</th>
+            <th>Comments</th>
           </tr>
         </thead>
+
         <tbody>
           <tr>
             <td>{{incident.number}} {{incident.street_name}}, {{incident.post_code}}</td>
@@ -43,7 +31,6 @@
             <td>{{incident.date_reported}} by {{incident.reported_by}}</td>
             <td>{{incident.comments}}</td>
           </tr>
-         
           <tr>
             <td>22 Sussex close, LU3</td>
             <td>Hazard, Animal</td>
@@ -60,30 +47,28 @@
           </tr>
         </tbody>
       </table>
-      </div>
-      </div>
-      <div class="card-stacked">
-        <div class="card-content">
-          <p>Enter new reminders, edit or delete old reminders</p>
-        </div>
-        <div class="card-action">
-          <a href="#">Expand route</a>
-        </div>
-      </div>
-    
+    </div>
   </div>
-  
+  <div class="card-stacked">
+    <div class="card-content">
+      <p>Enter new reminders, edit or delete old reminders</p>
+    </div>
+    <div class="card-action">
+      <a href="#">Expand route</a>
+    </div>
+  </div>
+
+</div>
+
 <div class="fixed-action-btn toolbar">
-    <a class="btn-floating btn-large red">
+  <a class="btn-floating btn-large red">
       <i class="large material-icons">mode_edit</i>
     </a>
-    <ul>
-      <li class="waves-effect waves-light red label"><a href="{{ url_for('add_hazard') }}">HAZARD</a></li>
-      <li class="waves-effect waves-light teal label"><a href="{{ url_for('add_access') }}">ACCESS</a></li>
-      <li class="waves-effect waves-light green label"><a href="{{ url_for('add_request') }}">REQUEST</a></li>
-    </ul>
-  </div>  
-  
-{% endfor %}
-{% endblock %}
+  <ul>
+    <li class="waves-effect waves-light red label"><a href="{{ url_for('add_hazard') }}">HAZARD</a></li>
+    <li class="waves-effect waves-light teal label"><a href="{{ url_for('add_access') }}">ACCESS</a></li>
+    <li class="waves-effect waves-light green label"><a href="{{ url_for('add_request') }}">REQUEST</a></li>
+  </ul>
+</div>
 
+{% endfor %} {% endblock %}
