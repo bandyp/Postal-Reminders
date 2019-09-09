@@ -16,8 +16,8 @@
             </div>
             <div class="input-field col s6">
                 <i class="material-icons prefix">location_city</i>
-                <select id="street_name" name="street_name">
-                      <option value="">Choose your option</option>
+                <select>
+                      <option value="" disabled selected>Choose your option</option>
                       <option value="1">Milverton Gn</option>
                       <option value="2">Lemington Rd</option>
                       <option value="3">Horace Brightman Cl</option>
@@ -32,7 +32,7 @@
                       <option value="3">Freeman Av</option>
                       <option value="3">Whitehorse Vale</option>
                 </select>
-                <label>Street Name</label>>
+                <label>Street Name</label>
             </div>
         </div>
         <div class="row">
@@ -68,10 +68,10 @@
         </div>
         <div class="row">
 
-            <div class="input-field col s6" id="matfix">
+            <div class="input-field col s6">
                 <i class="material-icons prefix">today</i>
-                <input id="due_date" name="due_date" type="text" class="datepicker">
-                <label for="icon_prefix">Due Date</label>
+                <input id="date_reported" name="date_reported" type="text" class="datepicker">
+                <label for="icon_prefix">Date</label>
             </div>
 
             <div class="switch col s6">
@@ -89,4 +89,5 @@
         </div>
     </form>
 </div>
+
 {% endblock %}
