@@ -1,6 +1,5 @@
 {% extends 'base.html' %} 
-{% block content %} {% for incident in incidents %} {{incident.reminder_category}} {{incident.incident_type}} {{incident.incident_description}} {{incident.date_reported}} {{incident.reported_by}} {{incident.comments}} {{incident.number}}
-{{incident.street_name}} {{incident.post_code}} {{incident.walk_no}} {{incident.depot}} {{incident.management_aware}}
+{% block content %} {% for incident in incidents %} 
 
 
 <nav>
@@ -10,7 +9,7 @@
 </nav>
 
 <div class="col s12 m7">
-  <h3 class="header center">Route Reminders</h3>
+  <h3 class="header center">Route {{incident.walk_no}} {{incident.depot}} Reminders</h3>
 
   <div class="card vertical">
     <div class="card-image test">
@@ -26,6 +25,7 @@
         </thead>
 
         <tbody>
+          {% for incident in incidents %}
           <tr>
             <td>{{incident.number}} {{incident.street_name}}, {{incident.post_code}}</td>
             <td>{{incident.reminder_category}}, {{incident.incident_type}}</td>
@@ -33,20 +33,7 @@
             <td>{{incident.date_reported}} by {{incident.reported_by}}</td>
             <td>{{incident.comments}}</td>
           </tr>
-          <tr>
-            <td class="test">22 Sussex close, LU3</td>
-            <td>Hazard, Animal</td>
-            <td>Dog grabbing mail</td>
-            <td>01/01/01 by User</td>
-            <td>NA</td>
-          </tr>
-          <tr>
-            <td>23 Sussex close, LU3</td>
-            <td>Hazard, Animal</td>
-            <td>Dog grabbing mail</td>
-            <td>01/01/01 by User</td>
-            <td>NA</td>
-          </tr>
+          {% endfor %}
         </tbody>
       </table>
     </div>

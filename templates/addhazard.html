@@ -11,26 +11,26 @@
         <div class="row">
             <div class="input-field col s4">
                 <i class="material-icons prefix">location_on</i>
-                <input id="number" type="text" class="validate">
-                <label for="number">House Number</label>
+                <input id="number" name="number" type="text" class="validate">
+                <label for="number">Number</label>
             </div>
-            <div class="input-field col s6">
+            <div class="input-field col s8">
                 <i class="material-icons prefix">location_city</i>
-                <select>
+                <select id="street_name" name="street_name">
                       <option value="" disabled selected>Choose your option</option>
-                      <option value="1">Milverton Gn</option>
-                      <option value="2">Lemington Rd</option>
-                      <option value="3">Horace Brightman Cl</option>
-                      <option value="1">Lighthorn Rs</option>
-                      <option value="2">Morrel Cl</option>
-                      <option value="3">Quickswood</option>
-                      <option value="1">Willenhall Cl</option>
-                      <option value="2">Speedwell Cl</option>
-                      <option value="3">Sorrell Cl</option>
-                      <option value="1">Celandine Dv</option>
-                      <option value="2">Lucas Gardens</option>
-                      <option value="3">Freeman Av</option>
-                      <option value="3">Whitehorse Vale</option>
+                      <option value="Milverton Gn">Milverton Gn</option>
+                      <option value="Lemington Rd">Lemington Rd</option>
+                      <option value="Horace Brightman Cl">Horace Brightman Cl</option>
+                      <option value="Lighthorn Rs">Lighthorn Rs</option>
+                      <option value="Morrel Cl">Morrel Cl</option>
+                      <option value="Quickswood">Quickswood</option>
+                      <option value="Willenhall Cl">Willenhall Cl</option>
+                      <option value="Speedwell Cl">Speedwell Cl</option>
+                      <option value="Sorrell Cl">Sorrell Cl</option>
+                      <option value="Celandine Dv">Celandine Dv</option>
+                      <option value="Lucas Gardens">Lucas Gardens</option>
+                      <option value="Freeman Av">Freeman Av</option>
+                      <option value="Whitehorse Vale">Whitehorse Vale</option>
                 </select>
                 <label>Street Name</label>
             </div>
@@ -38,21 +38,21 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
-                <select>
-                    <optgroup label="Animal">
-                        <option value="1">Dog snapping at mail</option>
-                        <option value="2">Loose Dog</option>
-                        <option value="3">Other</option>
+                <select id="incident_type" name="incident_type">
+                    <optgroup label="Animal" id="incident_type" name="incident_type">
+                        <option id="incident_description" name="incident_description" value="Dog snapping at mail">Dog snapping at mail</option>
+                        <option id="incident_description" name="incident_description" value="Loose Dog">Loose Dog</option>
+                        <option id="incident_description" name="incident_description" value="Other">Other</option>
                     </optgroup>
-                    <optgroup label="Access">
-                        <option value="4">Unsafe Pathway</option>
-                        <option value="5">Contruction</option>
-                        <option value="6">Other</option>
+                    <optgroup label="Access" id="incident_type" name="incident_type">
+                        <option id="incident_description" name="incident_description" value="Unsafe Pathway">Unsafe Pathway</option>
+                        <option id="incident_description" name="incident_description" value="Contruction">Contruction</option>
+                        <option id="incident_description" name="incident_description" value="Other">Other</option>
                     </optgroup>
-                    <optgroup label="People">
-                        <option value="7">Possible criminal activity</option>
-                        <option value="8">Aggressive/abusive behaviour</option>
-                        <option value="9">Other</option>
+                    <optgroup label="People" id="incident_type" name="incident_type">
+                        <option id="incident_description" name="incident_description" value="Possible criminal activity">Possible criminal activity</option>
+                        <option id="incident_description" name="incident_description" value="Aggressive/abusive behaviour">Aggressive/abusive behaviour</option>
+                        <option id="incident_description" name="incident_description" value="Other">Other</option>
                     </optgroup>
                 </select>
                 <label>Description</label>
@@ -74,19 +74,17 @@
                 <label for="icon_prefix">Date</label>
             </div>
 
-            <div class="switch col s6">
+            <div class="switch col s3">
                 <label>
+                    <i class="material-icons prefix">person</i>
                     <input id="management_aware" name="management_aware" type="checkbox">
                     <span class="lever"></span>
                       Manager Aware
-                    </label>
+                </label>
             </div>
-        </div>
-        <div class="row">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Add Hazard
-                <i class="material-icons right">send</i>
-            </button>
-        </div>
+            <div class="submit col s3">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add Hazard</button>
+            </div>
     </form>
 </div>
 

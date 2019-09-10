@@ -14,6 +14,12 @@ mongo = PyMongo(app)
 def get_incidents():
     return render_template("incidents.html", incidents=mongo.db.incidents.find())
 
+@app.route('/insert_hazard', methods=['POST'])
+def insert_hazard():
+    incidents = mongo.db.incidents
+    incidents.insert_one(request.form.to_dict())
+    return redirect(url_for('get_incidents'))
+
 @app.route('/add_hazard')
 def add_hazard():
     return render_template("addhazard.html")
@@ -34,11 +40,7 @@ def goto_home():
 def see_route():
     return render_template("route.html")
 
-@app.route('/insert_hazard', methods=['POST'])
-def insert_hazard():
-    incidents=mongo.db.incidents
-    incidents.insert_one(request.form.to.dict())
-    return redirect(url_for('get_incidents'))
+
 
 
 if __name__ == '__main__':
