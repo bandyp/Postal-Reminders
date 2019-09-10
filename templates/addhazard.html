@@ -1,13 +1,32 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% block content %} 
 <nav>
   <div class="nav-wrapper">
     <a href="{{ url_for('goto_home') }}" class="brand-logo center">Royal Mail</a>
-    
   </div>
 </nav>
 <h3>Add Hazard</h3>
 <div class="row">
     <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
+        <div class="row">
+            {% for incident in incidents %}
+            <div class="input-field col s3">
+                <input value="{{incident.reported_by}}" id="reported_by" type="text" class="validate">
+                <label class="active" for="reported_by">Staff Name</label>
+            </div>
+            <div class="input-field col s3">
+                <input value="{{incident.post_code}}" id="post_code" type="text" class="validate">
+                <label class="active" for="post_code">Post Code</label>
+            </div>
+            <div class="input-field col s3">
+                <input value="{{incident.walk_no}}" id="walk_no" type="text" class="validate">
+                <label class="active" for="walk_no">Walk No.</label>
+            </div>
+             <div class="input-field col s3">
+                <input value="{{incident.depot}}" id="depot" type="text" class="validate">
+                <label class="active" for="depot">Office</label>
+            </div>
+            {% endfor %}
+        </div>
         <div class="row">
             <div class="input-field col s4">
                 <i class="material-icons prefix">location_on</i>

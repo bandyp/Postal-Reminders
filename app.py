@@ -10,15 +10,23 @@ app.config["MONGO_URI"] = 'mongodb+srv://bandyp:Ema1LandreW@myfirstcluster-ehsli
 mongo = PyMongo(app)
 
 @app.route('/')
+@app.route('/reminders')
+def reminders():
+    return render_template("login.html", incidents=mongo.db.incidents.find())
+
 @app.route('/get_incidents')
 def get_incidents():
-    return render_template("incidents.html", incidents=mongo.db.incidents.find())
+    return render_template("incidents.html")
 
 @app.route('/insert_hazard', methods=['POST'])
 def insert_hazard():
     incidents = mongo.db.incidents
     incidents.insert_one(request.form.to_dict())
     return redirect(url_for('get_incidents'))
+    
+@app.route('/goto_home')
+def goto_home():
+    return render_template("incidents.html", incidents=mongo.db.incidents.find())    
 
 @app.route('/add_hazard')
 def add_hazard():
@@ -32,9 +40,7 @@ def add_access():
 def add_request():
     return render_template("addrequest.html")
 
-@app.route('/goto_home')
-def goto_home():
-    return render_template("incidents.html")
+
     
 @app.route('/see_route')
 def see_route():
