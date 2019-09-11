@@ -16,7 +16,7 @@ def reminders():
 
 @app.route('/get_incidents')
 def get_incidents():
-    return render_template("incidents.html")
+    return render_template("incidents.html", incidents=mongo.db.incidents.find())
 
 @app.route('/insert_hazard', methods=['POST'])
 def insert_hazard():

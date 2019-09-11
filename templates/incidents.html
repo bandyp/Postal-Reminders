@@ -9,7 +9,7 @@
 </nav>
 
 <div class="col s12 m7">
-  <h3 class="header center">Route {{incident.walk_no}} {{incident.depot}} Reminders</h3>
+  <h3 class="header center">Route {{incident.walk_no}} {{incident.depot}} {{incident.post_code}} Reminders</h3>
 
   <div class="card vertical">
     <div class="card-image test">
@@ -17,9 +17,7 @@
         <thead>
           <tr>
             <th>Address</th>
-            <th>Reminder</th>
             <th>Description</th>
-            <th>Date/Staff</th>
             <th>Comments</th>
           </tr>
         </thead>
@@ -27,10 +25,8 @@
         <tbody>
           {% for incident in incidents %}
           <tr>
-            <td>{{incident.number}} {{incident.street_name}}, {{incident.post_code}}</td>
-            <td>{{incident.reminder_category}}, {{incident.incident_type}}</td>
+            <td>{{incident.number}} {{incident.street_name}} </td>
             <td>{{incident.incident_description}}</td>
-            <td>{{incident.date_reported}} by {{incident.reported_by}}</td>
             <td>{{incident.comments}}</td>
           </tr>
           {% endfor %}
@@ -38,14 +34,11 @@
       </table>
     </div>
   </div>
-  <div class="card-stacked">
-    <div class="card-content">
-      <p>Enter new reminders, edit or delete old reminders</p>
-    </div>
+  
     <div class="card-action">
-      <a href="#">Expand route</a>
+      <p><a href="#">Expand route</a> to edit or delete old reminders</p>
     </div>
-  </div>
+  
 
 </div>
 
