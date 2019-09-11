@@ -9,7 +9,7 @@
 </nav>
 
 <div class="col s12 m7">
-  <h3 class="header center">Route {{incident.walk_no}} {{incident.depot}} {{incident.post_code}} Reminders</h3>
+  <h3 class="header center">Route {{incident.walk_no}} {{incident.depot}}</h3>
 
   <div class="card vertical">
     <div class="card-image test">
@@ -36,7 +36,7 @@
   </div>
   
     <div class="card-action">
-      <p><a href="#">Expand route</a> to edit or delete old reminders</p>
+      <a href="{{ url_for('see_route') }}">Expand route</a>
     </div>
   
 

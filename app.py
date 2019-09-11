@@ -44,7 +44,7 @@ def add_request():
     
 @app.route('/see_route')
 def see_route():
-    return render_template("route.html")
+    return render_template("route.html", incidents=mongo.db.incidents.find())
 
 
 

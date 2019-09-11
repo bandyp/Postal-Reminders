@@ -1,7 +1,13 @@
-{% extends 'base.html' %} {% block content %} 
-  {% for incident in incidents %} 
+{% extends 'base.html' %} 
+{% block content %} {% for incident in incidents %} 
+<nav col s12>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo center">Royal Mail</a>
+  </div>
+</nav>
+     <div class="row">
+     <div>
      <table>
-       <p>{{incident.walk_no}}, {{incident.depot}}</p>
         <thead>
           <tr>
               <th>Address</th>
@@ -9,18 +15,30 @@
               <th>Description</th>
               <th>Date/Staff</th>
               <th>Comments</th>
-              <th>Reported to Manager</th>
+              <th>Escalated</th>
           </tr>
         </thead>
 
         <tbody>
+          {% for incident in incidents %}
           <tr>
             <td>{{incident.street_name}}, {{incident.post_code}}</td>
             <td>{{incident.reminder_category}}, {{incident.incident_type}}</td>
             <td>{{incident.incident_description}}</td>
             <td>{{incident.date_reported}} by {{incident.reported_by}}</td>
             <td>{{incident.comments}}</td>
+            <td></td>
+            <td><a class="waves-effect red waves-light btn">Edit</a></td>
+            <td><a class="waves-effect red waves-light btn">Delete</a></td>
+          </tr>
+          
+            
         </tbody>
+        
+        {% endfor %}
       </table>
+      </div>
+      
+      </div>
       {% endfor %}
 {% endblock %}
