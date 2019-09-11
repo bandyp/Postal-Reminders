@@ -40,7 +40,10 @@ def add_access():
 def add_request():
     return render_template("addrequest.html")
 
-
+@app.route('/delete_incident/<incident_id>')
+def delete_incident(incident_id):
+    mongo.db.incidents.remove({'_id': ObjectId(incident_id)})
+    return redirect(url_for('get_incidents'))
     
 @app.route('/see_route')
 def see_route():
