@@ -40,6 +40,11 @@ def add_access():
 def add_request():
     return render_template("addrequest.html")
 
+@app.route('/edit_incident/<incident_id>')
+def edit_incident(incident_id):
+    the_incident =  mongo.db.incidents.find_one({"_id": ObjectId(incident_id)})
+    return render_template('editincident.html', incident=the_incident)
+
 @app.route('/delete_incident/<incident_id>')
 def delete_incident(incident_id):
     mongo.db.incidents.remove({'_id': ObjectId(incident_id)})
