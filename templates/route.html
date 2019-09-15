@@ -1,5 +1,7 @@
 {% extends 'base.html' %} 
-{% block content %} {% for incident in incidents %} 
+{% block content %} 
+
+{% for incident in incidents %} 
 
   <div class="row">
 <nav col s12>
@@ -24,7 +26,7 @@
         <tbody>
           {% for incident in incidents %}
           <tr>
-            <td>{{incident.number}} {{incident.street_name}}, {{incident.post_code}}</td>
+            <td>{{incident.number}} {{incident.street_name}}</td>
             <td>{{incident.incident_description}}</td>
             <td>{{incident.date_reported}} by {{incident.reported_by}}</td>
             <td>{{incident.comments}}</td>
