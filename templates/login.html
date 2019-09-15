@@ -1,27 +1,31 @@
-{% extends 'base.html' %}
-{% block content %}
-<body>
+{% extends 'base.html' %} {% block content %}
 
-    <div class="row">
-        <div class="col s12 m4 offset-m4">
-            <div class="card">
-                <div class="card-action red center white-text">
-                    <h4>Login</h4>
-                </div>
+<div class="row">
+
+
+    <div class="col s12 m4 offset-m4">
+        <form action="{{ url_for('insert_login') }}" method="POST" class="col s12">
+        <div class="card">
+            
+            <div class="card-action red center white-text">
+                <h4>Login</h4>
+            </div>
+            
                 <div class="card-content">
+
                     <div class="form-field">
-                        <label for="staff_name">Staff Name</label>
-                        <input value="Mike Postman" type="text" id="staff_name">
+                        <label for="reported_by">Staff Name</label>
+                        <input placeholder="Mike Postman" type="text" id="reported_by" name="reported_by">
                     </div><br>
 
                     <div class="form-field">
-                        <label for="route_number">Route Number</label>
-                        <input value="403" type="text" id="route_number">
+                        <label for="walk_no">Route Number</label>
+                        <input placeholder="403" type="text" id="walk_no" name="walk_no">
                     </div><br>
 
                     <div class="form-field">
                         <label for="post_code">Post code</label>
-                        <input value="LU3" type="text" id="post_code">
+                        <input placeholder="LU3" type="text" id="post_code" name="post_code">
                     </div><br>
 
                     <div class="form-field">
@@ -29,16 +33,17 @@
                         <label for="remember">Remember me</label>
                     </div><br>
 
-                    <div class="form-field center-align">
-                        <button class="btn waves-effect red waves-light"><a href="{{ url_for('goto_home') }}">Login</button>
+                    <div class="form-field white-text center-align">
+                        <button class="btn waves-effect red waves-light" type="submit" name="action">Login</button>
                     </div>
+
                 </div>
-            </div>
+            
         </div>
-    </div>
+        </form>
     </div>
 
+</div>
 
-</body>
 
 {% endblock %}

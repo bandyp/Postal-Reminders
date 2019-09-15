@@ -12,7 +12,13 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/reminders')
 def reminders():
-    return render_template("login.html", incidents=mongo.db.incidents.find())
+    return render_template("login.html", logins=mongo.db.logins.find())
+
+@app.route('/insert_login', methods=['POST'])
+def insert_login():
+    logins = mongo.db.logins
+    logins.insert_one(request.form.to_dict())
+    return redirect(url_for('get_incidents'))
 
 @app.route('/get_incidents')
 def get_incidents():

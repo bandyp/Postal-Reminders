@@ -14,7 +14,6 @@
         <thead>
           <tr>
               <th>Address</th>
-              <th>Reminder</th>
               <th>Description</th>
               <th>Date/Staff</th>
               <th>Comments</th>
@@ -25,8 +24,7 @@
         <tbody>
           {% for incident in incidents %}
           <tr>
-            <td>{{incident.street_name}}, {{incident.post_code}}</td>
-            <td>{{incident.reminder_category}}, {{incident.incident_type}}</td>
+            <td>{{incident.number}} {{incident.street_name}}, {{incident.post_code}}</td>
             <td>{{incident.incident_description}}</td>
             <td>{{incident.date_reported}} by {{incident.reported_by}}</td>
             <td>{{incident.comments}}</td>
