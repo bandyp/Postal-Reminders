@@ -3,7 +3,7 @@
 
 <nav>
   <div class="nav-wrapper">
-    <a href="#" class="brand-logo center">Royal Mail</a>
+    <a href="#" class="brand-logo yellow-text center">Royal Mail</a>
   </div>
 </nav>
 
@@ -36,7 +36,7 @@
   </div>
   
     <div class="card-action">
-      <a href="{{ url_for('see_route') }}">Expand route</a>
+      <a class="waves-effect red yellow-text waves-light btn" href="{{ url_for('see_route') }}">Expand route</a>
     </div>
   
 
@@ -44,7 +44,7 @@
 
 <div class="fixed-action-btn toolbar">
   <a class="btn-floating btn-large red">
-      <i class="large material-icons">mode_edit</i>
+      <i class="large yellow-text material-icons">mode_edit</i>
     </a>
   <ul>
     <li class="waves-effect waves-light red label"><a href="{{ url_for('add_hazard') }}">HAZARD</a></li>
