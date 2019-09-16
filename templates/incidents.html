@@ -1,5 +1,5 @@
 {% extends 'base.html' %} 
-{% block content %} {% for incident in incidents %} 
+{% block content %} 
 
 <nav>
   <div class="nav-wrapper">
@@ -8,7 +8,7 @@
 </nav>
 
 <div class="col s12 m7">
-  <h3 class="header center">Route {{incident.walk_no}} {{incident.depot}}</h3>
+  <h3 class="header center">Route</h3>
 
   <div class="card vertical">
     <div class="card-image test">
@@ -31,6 +31,7 @@
           {% endfor %}
         </tbody>
       </table>
+      
     </div>
   </div>
   
@@ -52,4 +53,4 @@
   </ul>
 </div>
 
-{% endfor %} {% endblock %}
+{% endblock %}

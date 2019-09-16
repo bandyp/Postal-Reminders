@@ -22,7 +22,7 @@ def insert_login():
 
 @app.route('/get_incidents')
 def get_incidents():
-    return render_template("incidents.html", incidents=mongo.db.incidents.find())
+    return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())
 
 @app.route('/insert_hazard', methods=['POST'])
 def insert_hazard():
@@ -32,7 +32,7 @@ def insert_hazard():
     
 @app.route('/goto_home')
 def goto_home():
-    return render_template("incidents.html", incidents=mongo.db.incidents.find())    
+    return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())    
 
 @app.route('/add_hazard')
 def add_hazard():
@@ -58,7 +58,7 @@ def delete_incident(incident_id):
     
 @app.route('/see_route')
 def see_route():
-    return render_template("route.html", incidents=mongo.db.incidents.find())
+    return render_template("route.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())
 
 
 

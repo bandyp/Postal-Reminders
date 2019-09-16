@@ -2,8 +2,90 @@
 <nav>
   <div class="nav-wrapper">
     <a href="{{ url_for('goto_home') }}" class="brand-logo center">Royal Mail</a>
-    
   </div>
 </nav>
 <h3>Add Access Issues</h3>
+<div class="row">
+    <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
+        <div class="row">
+            <div class="input-field col s4">
+                <i class="material-icons prefix">location_on</i>
+                <input id="number" name="number" type="text" class="validate">
+                <label for="number">Number</label>
+            </div>
+            <div class="input-field col s8">
+                <i class="material-icons prefix">location_city</i>
+                <select id="street_name" name="street_name">
+                      <option value="" disabled selected>Choose your option</option>
+                      <option value="Milverton Gn">Milverton Gn</option>
+                      <option value="Lemington Rd">Lemington Rd</option>
+                      <option value="Horace Brightman Cl">Horace Brightman Cl</option>
+                      <option value="Lighthorn Rs">Lighthorn Rs</option>
+                      <option value="Morrel Cl">Morrel Cl</option>
+                      <option value="Quickswood">Quickswood</option>
+                      <option value="Willenhall Cl">Willenhall Cl</option>
+                      <option value="Speedwell Cl">Speedwell Cl</option>
+                      <option value="Sorrell Cl">Sorrell Cl</option>
+                      <option value="Celandine Dv">Celandine Dv</option>
+                      <option value="Lucas Gardens">Lucas Gardens</option>
+                      <option value="Freeman Av">Freeman Av</option>
+                      <option value="Whitehorse Vale">Whitehorse Vale</option>
+                </select>
+                <label>Street Name</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">assignment</i>
+                <select id="incident_description" name="incident_description">
+                    <optgroup label="Animal" id="incident_description" name="incident_type">
+                        <option value="" disabled selected>Choose your option</option>
+                        <option value="Access Issue: No way through to mailbox">No way through to mailbox</option>
+                        <option value="Access Issue: No Mailbox">No Mailbox</option>
+                        <option value="Access Issue: Other">Other</option>
+                    </optgroup>
+                    <optgroup label="Access" id="incident_type" name="incident_type">
+                        <option value="Access Hazard: Unsafe Pathway">Unsafe Pathway</option>
+                        <option value="Access Hazard: Contruction">Contruction</option>
+                        <option value="Access Hazard: Other">Other</option>
+                    </optgroup>
+                    <optgroup label="People" id="incident_type" name="incident_type">
+                        <option value="People Hazard: Possible criminal activity">Possible criminal activity</option>
+                        <option value="People Hazard: Aggressive/abusive behaviour">Aggressive/abusive behaviour</option>
+                        <option value="People Hazard: Other">Other</option>
+                    </optgroup>
+                </select>
+                <label>Description</label>
+            </div>
+            
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="comments" name="comments" class="materialize-textarea" data-length="120"></textarea>
+                <label for="Comments">Comments</label>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="input-field col s6">
+                <i class="material-icons prefix">today</i>
+                <input id="date_reported" name="date_reported" type="text" class="datepicker">
+                <label for="icon_prefix">Date</label>
+            </div>
+
+            <div class="switch col s3">
+                <label>
+                    <i class="material-icons prefix">person</i>
+                    <input id="management_aware" name="management_aware" type="checkbox">
+                    <span class="lever"></span>
+                      Manager is aware
+                </label>
+            </div>
+            <div class="submit col s3">
+            <button class="btn waves-effect waves-light" type="submit" name="action">Add Hazard</button>
+            </div>
+    </form>
+</div>
+
 {% endblock %}
