@@ -54,7 +54,7 @@ def edit_incident(incident_id):
 @app.route('/delete_incident/<incident_id>')
 def delete_incident(incident_id):
     mongo.db.incidents.remove({'_id': ObjectId(incident_id)})
-    return redirect(url_for('get_incidents'))
+    return redirect(url_for('see_route'))
     
 @app.route('/see_route')
 def see_route():
