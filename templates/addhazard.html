@@ -4,6 +4,7 @@
     <a href="{{ url_for('goto_home') }}" class="brand-logo yellow-text center">Royal Mail</a>
   </div>
 </nav>
+<a  href="{{ url_for('goto_home') }}" class="waves-effect waves-light btn-flat"><i class="material-icons left">arrow_back</i>Back</a>
 <h3>Add Hazard</h3>
 <div class="row">
     <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
@@ -11,7 +12,7 @@
             <div class="input-field col s4">
                 <i class="material-icons prefix">location_on</i>
                 <input id="number" name="number" type="text" class="validate">
-                <label for="number">Number</label>
+                <label for="number">Street Number</label>
             </div>
             <div class="input-field col s8">
                 <i class="material-icons prefix">location_city</i>
