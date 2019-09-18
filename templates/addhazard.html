@@ -1,10 +1,10 @@
-{% extends 'base.html' %} {% block content %} 
+{% extends 'base.html' %} {% block content %}
 <nav>
-  <div class="nav-wrapper red">
-    <a href="{{ url_for('goto_home') }}" class="brand-logo yellow-text center">Royal Mail</a>
-  </div>
+    <div class="nav-wrapper red">
+        <a href="{{ url_for('goto_home') }}" class="brand-logo yellow-text center">Royal Mail</a>
+    </div>
 </nav>
-<a  href="{{ url_for('goto_home') }}" class="waves-effect waves-light btn-flat"><i class="material-icons left">arrow_back</i>Back</a>
+<a href="{{ url_for('goto_home') }}" class="waves-effect waves-light btn-flat"><i class="material-icons left">arrow_back</i>Back</a>
 <h3>Add Hazard</h3>
 <div class="row">
     <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
@@ -51,14 +51,15 @@
                         <option value="Access Hazard: Other">Other</option>
                     </optgroup>
                     <optgroup label="People" id="incident_type" name="incident_type">
-                        <option value="People Hazard: Possible criminal activity">Possible criminal activity</option>
+                        <option value="People Hazard: Possible criminal activity">Suspicious activity</option>
                         <option value="People Hazard: Aggressive/abusive behaviour">Aggressive/abusive behaviour</option>
+                        <option value="People Hazard: Health concern for customer">Concern for customer health and safety</option>
                         <option value="People Hazard: Other">Other</option>
                     </optgroup>
                 </select>
                 <label>Description</label>
             </div>
-            
+
         </div>
         <div class="row">
             <div class="input-field col s12">
@@ -77,15 +78,15 @@
 
             <div class="switch col s3">
                 <label>
-                    
                     <input id="management_aware" name="management_aware" type="checkbox">
                     <span class="lever right"></span>
-                      Manager is aware
+                      Escalated
                 </label>
             </div>
             <div class="submit col s3">
-            <button class="btn waves-effect yellow-text waves-light" type="submit" name="action">Add Hazard</button>
+                <button class="btn waves-effect yellow-text waves-light" type="submit" name="action">Add Hazard</button>
             </div>
+        </div>
     </form>
 </div>
 

@@ -38,12 +38,11 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <select id="incident_description" name="incident_description">
-                    <optgroup label="Access" id="incident_description" name="incident_type">
                         <option value="" disabled selected>Choose your option</option>
                         <option value="Access Issue: No way through to mailbox">No way through to mailbox</option>
                         <option value="Access Issue: No Mailbox">No Mailbox</option>
+                        <option value="Access Issue: Mailbox Full">Mailbox Full</option>
                         <option value="Access Issue: Other">Other</option>
-                    </optgroup>>
                 </select>
                 <label>Description</label>
             </div>
@@ -66,10 +65,9 @@
 
             <div class="switch col s3">
                 <label>
-                    <i class="material-icons prefix">person</i>
                     <input id="management_aware" name="management_aware" type="checkbox">
                     <span class="lever"></span>
-                      Manager is aware
+                      Escalated
                 </label>
             </div>
             <div class="submit col s3">

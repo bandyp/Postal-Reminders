@@ -38,13 +38,13 @@
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
                 <select id="incident_description" name="incident_description">
-                    <optgroup label="Access" id="incident_description" name="incident_type">
                         <option value="" disabled selected>Choose your option</option>
-                        <option value="Customer request: Mail to Neighbour">Mail to Neighbour</option>
+                        <option value="Customer request: All Mail to Neighbour">All mail to Neighbour</option>
+                        <option value="Customer request: Parcels to Neighbour">Parcels to Neighbour</option>
+                        <option value="Customer request: Put parcels in safe place">Put parcels in safe place</option>
                         <option value="Customer request: No Junk Mail">No Junk Mail</option>
                         <option value="Customer request: Do not walk on grass">Do not walk on grass</option>
                         <option value="Customer request: Other">Other</option>
-                    </optgroup>>
                 </select>
                 <label>Description</label>
             </div>
@@ -67,10 +67,9 @@
 
             <div class="switch col s3">
                 <label>
-                    <i class="material-icons prefix">person</i>
                     <input id="management_aware" name="management_aware" type="checkbox">
                     <span class="lever"></span>
-                      Manager is aware
+                      Escalated
                 </label>
             </div>
             <div class="submit col s3">
