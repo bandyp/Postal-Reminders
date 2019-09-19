@@ -1,12 +1,15 @@
 {% extends 'base.html' %} {% block content %}
 <nav>
+    <!-- header with home link -->
   <div class="nav-wrapper red">
     <a href="{{ url_for('goto_home') }}" class="brand-logo yellow-text center">Royal Mail</a>
   </div>
 </nav>
+<!-- back button with home link -->
 <a href="{{ url_for('goto_home') }}" class="waves-effect waves-light btn-flat"><i class="material-icons left">arrow_back</i>Back</a>
 <h3>Add Customer Requests</h3>
 <div class="row">
+    <!-- form to add a new request -->
     <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s4">

@@ -2,15 +2,9 @@
 Last year alone over 2500 postal workers suffered from dog bites. That, and other hazards are avoidable 
 with the right process in place.
 
-Currently, if there is a hazard on the route (loose dog or animal attacking on delivery) the PW must 
-fill out a hazard card, this is then used to enter into a route reminder folder which is then read by any new PW to that route. 
-A yellow sticker is placed on the route and a warning is written on post going to that address.
+Currently, there is a manual process which is difficult and timely.  
 
-This process is difficult and timely. In reality it is haphazard at best as it requires the PW to fill out a 
-special card, which they might not have on them or have the time to do. They might remember the reminder themselves in future deliveries, 
-but this information may not passed on. 
-
-Also, a PW with a regular route knows the best houses to deliver parcels when the right address is not home. 
+Also, a PW (postal worker) with a regular route knows the best houses to deliver parcels when the right address is not home. 
 They also know the many requests that customers they see on their route might have. 
 
 What happens on their day off or if a new posty takes over their area? All that information
@@ -19,9 +13,9 @@ to help maintain consistency and minimise the risk to the postal worker.
 
 ## UX
 This needed to be very simple and quick to use, otherwise it would not be utilised. All postal workers 
-carry a PDA to help log parcel deliveries. They also track where the posty is through GPS positioning. This 
-guarantees the post made it to its destination. This app is designed to work on the PDA. This means 
-that no extra equipment is required to the already overloaded postal worker.
+carry a PDA to help log parcel deliveries. They also track the posty's location through GPS positioning. This 
+guarantees the post made it to its destination. This app is designed to work on the PDA requiring no  extra 
+equipment to the already overloaded postal worker.
 
 It is designed to be clear and as few button presses as possible. The Posty simply makes a quick log of the 
 reminder as they walk between houses and can then be edited when they get back the van. It is vital 
@@ -59,9 +53,10 @@ the user to log information via a form.
 
 In future, I'd like to incorporate the GPS on the PDA to alert a Postal Worker when they were approaching an address with a reminder.
 
-Also, I would like to use the Royal Mail database for all routes, not just one. So that it could be used across the country.
+Also, I would like to use the Royal Mail database for all routes, through the login process. So that it could be used across the country.
 
-As the friendly local PW is the eyes and ears of any cummunity, this app could be extended to check in on the elderly or those with disabilities. There could also be an incentive introduced for those PW's who use the app the most.
+As the friendly local PW is the eyes and ears of any cummunity, this app could be extended to check in on the elderly or those with disabilities. 
+There could also be an incentive introduced for those PW's who use the app the most.
 
 ## Technology Used
 * HTML - for the structure of the content of the page
@@ -72,18 +67,17 @@ As the friendly local PW is the eyes and ears of any cummunity, this app could b
 * Git - for version control
 * GitHub - to host the repository
 * GitHup Pages - Website hosting.
-* Heroku
-* MondoDB
-* Flask-Pymongo
-* Bson
-* Python
+* Heroku - to deploy the app
+* MondoDB - to store the collections
+* Flask-Pymongo - for interaction with the front end
+* Python - for back end implementation
 
 ## Testing
 
 ### Manual Tests
-I tested myself to ensure the moving from one page to another was seemless and that information
-was correctly logged to MondoDB.
-I also gave it to some Postal workers for valualble input on the main hazards
+I tested myself to ensure the moving from one page to another was seemless and 
+that information was correctly logged to MondoDB.
+I also gave it to some Postal workers for valualble input on the main reminders to use.
 
 ### Automated Tests
 * Chrome Developer Tools - to ensure all screen sizes responded correctly
@@ -91,6 +85,12 @@ I also gave it to some Postal workers for valualble input on the main hazards
 * JSHint - used to test Javascript
 
 ## Deployment
-* 
+The app was developed using AWS Cloud9. The git repository was initiated through 
+the bash terminal and regular commits were made after each piece of development. 
+The project was then deployed to Heroku through the following steps.
+* Created new app titled "postal-hazards-uk"
+* The repository was cloned by using: heroku git:clone -a postal-hazards-uk
+* A requirments file and procfile was added
+* The Git repository was added using: git push heroku master
 
 ## Credits

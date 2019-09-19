@@ -1,10 +1,11 @@
 {% extends 'base.html' %} {% block content %}
-
+<!-- Page header -->
 <nav>
   <div class="nav-wrapper red">
     <a href="#" class="brand-logo yellow-text center">Royal Mail</a>
   </div>
 </nav>
+<!-- Search bar to find streets and incidents -->
 <form>
   <div class="input-field">
     <input action="{{ url_for('searches') }}" id="search" type="search" required>
@@ -12,11 +13,13 @@
     <i class="material-icons">close</i>
   </div>
 </form>
+<!-- Page heading -->
 <div class="col s12 m7">
   <h3 class="header center">Route</h3>
 
   <div class="card vertical">
-    <div class="card-image test">
+    <div class="card-image">
+      <!-- Table showing basic route reminders -->
       <table class="table">
         <thead>
           <tr>
@@ -29,6 +32,7 @@
         <tbody>
           {% for incident in incidents %}
           <tr>
+            <!-- Links to mongoDB -->
             <td>{{incident.number}} {{incident.street_name}} </td>
             <td>{{incident.incident_description}}</td>
             <td>{{incident.comments}}</td>
@@ -41,17 +45,19 @@
   </div>
 
   <div class="card-action">
+    <!-- button to link to expanded table format -->
     <a class="waves-effect red waves-light btn" href="{{ url_for('see_route') }}">Expand route to edit</a>
   </div>
 
 
 </div>
-
+<!-- round edit button which expands to nav bar -->
 <div class="fixed-action-btn toolbar">
   <a class="btn-floating btn-large teal darken-4">
       <i class="large material-icons">mode_edit</i>
     </a>
   <ul>
+    <!-- Nav bar -->
     <li class="waves-effect waves-light red accent-4 label"><a href="{{ url_for('add_hazard') }}">HAZARD</a></li>
     <li class="waves-effect waves-light teal label"><a href="{{ url_for('add_access') }}">ACCESS</a></li>
     <li class="waves-effect waves-light green label"><a href="{{ url_for('add_request') }}">REQUEST</a></li>

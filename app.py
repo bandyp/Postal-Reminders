@@ -16,53 +16,65 @@ def reminders():
 
 @app.route('/insert_login', methods=['POST'])
 def insert_login():
+    # login form called and results posted to mongo
     logins = mongo.db.logins
     logins.insert_one(request.form.to_dict())
+    # go to main page
     return redirect(url_for('get_incidents'))
 
 @app.route('/get_incidents')
 def get_incidents():
+    # find incidents and login details and put onto incident template
     return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())
 
 @app.route('/insert_hazard', methods=['POST'])
 def insert_hazard():
+    # insert new hazard onto incident page
     incidents = mongo.db.incidents
     incidents.insert_one(request.form.to_dict())
     return redirect(url_for('get_incidents'))
     
 @app.route('/searches')
 def searches():
+    incidents = mongo.db.incidents
     db.incidents.createIndex({ street_name: "text", incident_description: "text" })
-    return render_template("route.html", incidents=mongo.db.incidents.find({ $text: {$search: "Morrel Cl"}})) 
+    return render_template("route.html", incidents=mongo.db.incidents.find({$"text":{$"search":""}})) 
 
 @app.route('/goto_home')
 def goto_home():
+    # function to return to incident page
     return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())    
 
 @app.route('/add_hazard')
 def add_hazard():
+    # goto add hazard html template
     return render_template("addhazard.html")
     
 @app.route('/add_access')
 def add_access():
+    # goto add access issue html template
     return render_template("addaccess.html")
     
 @app.route('/add_request')
 def add_request():
+    # goto add request html template
     return render_template("addrequest.html")
 
 @app.route('/edit_incident/<incident_id>')
 def edit_incident(incident_id):
+    # edit incident page
     the_incident =  mongo.db.incidents.find_one({"_id": ObjectId(incident_id)})
     return render_template('editincident.html', incident=the_incident)
 
 @app.route('/delete_incident/<incident_id>')
 def delete_incident(incident_id):
+    # delete incidents from mongodb
     mongo.db.incidents.remove({'_id': ObjectId(incident_id)})
     return redirect(url_for('see_route'))
     
 @app.route('/see_route')
 def see_route():
+    # function to view expanded table
     return render_template("route.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())
 
 if __name__ == '__main__':

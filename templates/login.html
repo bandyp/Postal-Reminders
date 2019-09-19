@@ -1,18 +1,18 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="row">
-
-
+<!-- Login page -->
     <div class="col s12 m4 offset-m4">
+        <!-- start of from showing what action to take - posting by function -->
         <form action="{{ url_for('insert_login') }}" method="POST" class="col s12">
         <div class="card">
             
-            <div class="card-action red center  yellow-text">
+            <div class="card-action red center yellow-text">
                 <h4>Login</h4>
             </div>
             
                 <div class="card-content">
-
+                <!-- input fields -->
                     <div class="form-field">
                         <label for="reported_by">Staff Name</label>
                         <input placeholder="Mike Postman" type="text" id="reported_by" name="reported_by">
