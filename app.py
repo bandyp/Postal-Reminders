@@ -30,6 +30,11 @@ def insert_hazard():
     incidents.insert_one(request.form.to_dict())
     return redirect(url_for('get_incidents'))
     
+@app.route('/searches')
+def searches():
+    db.incidents.createIndex({ street_name: "text", incident_description: "text" })
+    return render_template("route.html", incidents=mongo.db.incidents.find({ $text: {$search: "Morrel Cl"}})) 
+
 @app.route('/goto_home')
 def goto_home():
     return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())    
@@ -59,9 +64,6 @@ def delete_incident(incident_id):
 @app.route('/see_route')
 def see_route():
     return render_template("route.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())
-
-
-
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
