@@ -51,7 +51,7 @@ def goto_home():
 @app.route('/add_hazard')
 def add_hazard():
     # goto add hazard html template
-    return render_template("addhazard.html")
+    return render_template("addhazard.html", walk_340=mongo.db.walk_340.find())
     
 @app.route('/add_access')
 def add_access():
