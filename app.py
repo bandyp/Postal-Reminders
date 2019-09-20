@@ -34,11 +34,14 @@ def insert_hazard():
     incidents.insert_one(request.form.to_dict())
     return redirect(url_for('get_incidents'))
     
-@app.route('/searches')
+@app.route('/searches', methods=['POST'])
 def searches():
-    incidents = mongo.db.incidents
-    db.incidents.createIndex({ street_name: "text", incident_description: "text" })
-    return render_template("route.html", incidents=mongo.db.incidents.find({$"text":{$"search":""}})) 
+    if request.method == 'POST':
+        THE_STRING = request.form.get('search')
+        results = mongo.db.find({"street_name":THE_STRING})
+        return render_template("route.html", print(results)) 
+    else:
+        return redirect(url_for('get_incidents'))
 
 @app.route('/goto_home')
 def goto_home():
@@ -64,6 +67,7 @@ def add_request():
 def edit_incident(incident_id):
     # edit incident page
     the_incident =  mongo.db.incidents.find_one({"_id": ObjectId(incident_id)})
+    mongo.db.incidents.remove({'_id': ObjectId(incident_id)})
     return render_template('editincident.html', incident=the_incident)
 
 @app.route('/delete_incident/<incident_id>')

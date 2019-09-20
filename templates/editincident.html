@@ -8,26 +8,6 @@
 <div class="row">
     <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
         <div class="row">
-            {% for incident in incidents %}
-            <div class="input-field col s3">
-                <input value="{{incident.reported_by}}" id="reported_by" type="text" class="validate">
-                <label class="active" for="reported_by">Staff Name</label>
-            </div>
-            <div class="input-field col s3">
-                <input value="{{incident.post_code}}" id="post_code" type="text" class="validate">
-                <label class="active" for="post_code">Post Code</label>
-            </div>
-            <div class="input-field col s3">
-                <input value="{{incident.walk_no}}" id="walk_no" type="text" class="validate">
-                <label class="active" for="walk_no">Walk No.</label>
-            </div>
-             <div class="input-field col s3">
-                <input value="{{incident.depot}}" id="depot" type="text" class="validate">
-                <label class="active" for="depot">Office</label>
-            </div>
-            {% endfor %}
-        </div>
-        <div class="row">
             <div class="input-field col s4">
                 <i class="material-icons prefix">location_on</i>
                 <input id="number" name="number" type="text" class="validate" value="{{incident.number}}">
@@ -35,8 +15,8 @@
             </div>
             <div class="input-field col s8">
                 <i class="material-icons prefix">location_city</i>
-                <select id="street_name" name="street_name">
-                      <option value="" disabled selected>Choose your option</option>
+                <select id="street_name" name="street_name" placeholder="{{incident.street_name}}">
+                      <option value="" disabled selected>{{incident.street_name}}</option>
                       <option value="Milverton Gn">Milverton Gn</option>
                       <option value="Lemington Rd">Lemington Rd</option>
                       <option value="Horace Brightman Cl">Horace Brightman Cl</option>
@@ -57,9 +37,9 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
-                <select id="incident_description" name="incident_description">
+                <select id="incident_description" name="incident_description" placeholder="{{incident.incident_description}}">
                     <optgroup label="Animal" id="incident_description" name="incident_type">
-                        <option value="" disabled selected>Choose your option</option>
+                        <option value="" disabled selected>{{incident.incident_description}}</option>
                         <option value="Animal Hazard: Dog snapping at mail">Dog snapping at mail</option>
                         <option value="Animal Hazard: Loose Dog">Loose Dog</option>
                         <option value="Animal Hazard: Other">Other</option>
@@ -70,8 +50,9 @@
                         <option value="Access Hazard: Other">Other</option>
                     </optgroup>
                     <optgroup label="People" id="incident_type" name="incident_type">
-                        <option value="People Hazard: Possible criminal activity">Possible criminal activity</option>
+                        <option value="People Hazard: Possible criminal activity">Suspicious activity</option>
                         <option value="People Hazard: Aggressive/abusive behaviour">Aggressive/abusive behaviour</option>
+                        <option value="People Hazard: Health concern for customer">Concern for customer health and safety</option>
                         <option value="People Hazard: Other">Other</option>
                     </optgroup>
                 </select>
@@ -82,10 +63,10 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">mode_edit</i>
-                <textarea id="comments" name="comments" class="materialize-textarea" data-length="120" value="{{incident.comments}}"></textarea>
+                <input id="comments" name="comments" type="text" class="validate" value="{{incident.comments}}">
                 <label for="Comments">Comments</label>
             </div>
-        </div>
+        </div
         <div class="row">
 
             <div class="input-field col s6">
@@ -96,10 +77,13 @@
 
             <div class="switch col s3">
                 <label>
-                    <i class="material-icons prefix">person</i>
-                    <input id="management_aware" name="management_aware" type="checkbox">
+                    {% if incident.management_aware %}
+                        <input id="management_aware" name="management_aware" type="checkbox" checked>
+                    {% else %}
+                        <input id="management_aware" name="management_aware" type="checkbox">
+                    {% endif %}
                     <span class="lever"></span>
-                      Manager Aware
+                      Escalated
                 </label>
             </div>
             <div class="submit col s3">
@@ -107,5 +91,7 @@
             </div>
     </form>
 </div>
+
+
 
 {% endblock %}
