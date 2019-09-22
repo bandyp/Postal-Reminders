@@ -1,39 +1,42 @@
 {% extends 'base.html' %} {% block content %}
 
 <div class="row">
-<!-- Login page -->
+    <!-- Login page -->
     <div class="col s12 m4 offset-m4">
         <!-- start of from showing what action to take - posting by function -->
         <form action="{{ url_for('insert_login') }}" method="POST" class="col s12">
-        <div class="card">
-            
-            <div class="card-action red center yellow-text">
-                <h4>Login</h4>
-            </div>
-            
+            <div class="card">
+                <div class="card-action red center yellow-text">
+                    <h4>Login</h4>
+                </div>
                 <div class="card-content">
-                <!-- input fields -->
+
+                    <!-- input fields -->
                     <div class="form-field">
                         <label for="reported_by">Staff Name</label>
                         <input placeholder="Mike Postman" type="text" id="reported_by" name="reported_by">
-                    </div><br>
+                    </div>
+
+                    <!-- select option for walk number -->
                     <div class="form-field">
                         <label>Walk Number</label>
                         <select id="walk_no" name="walk_no">
                               <option value="" disabled selected>Choose Walk number</option>
                               <option value="340">340</option>
                               <option value="341">341</option>
-                              
-                        </select><br>
+                        </select>
+                    </div><br>
                     
+                    <!-- select option for post code area -->
                     <div class="form-field">
                         <label for="post_code">Post code</label>
-                        <input placeholder="LU3" type="text" id="post_code" name="post_code">
-                    </div><br>
-
-                    <div class="form-field">
-                        <input type="checkbox" id="remember">
-                        <label for="remember">Remember me</label>
+                        <select id="post_code" name="post_code">
+                              <option value="" disabled selected>Choose Post code</option>
+                              <option value="LU1">LU1</option>
+                              <option value="LU2">LU2</option>
+                              <option value="LU3">LU3</option>
+                              <option value="LU4">LU4</option>
+                        </select>
                     </div><br>
 
                     <div class="form-field white-text center-align">
@@ -41,12 +44,9 @@
                     </div>
 
                 </div>
-            
-        </div>
+            </div>
         </form>
     </div>
-
 </div>
-
 
 {% endblock %}

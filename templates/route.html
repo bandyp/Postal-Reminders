@@ -9,6 +9,15 @@
     </div>
   </nav>
 </div>
+<!-- Search bar to find streets and incidents -->
+<form>
+  <div class="input-field">
+    <input action="{{ url_for('searches') }}" name="search" id="search" type="search" required>
+    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
+    <i class="material-icons">close</i>
+  </div>
+</form>
+
 <!-- Button with link back to home -->
 <a href="{{ url_for('goto_home') }}" class="waves-effect waves-light btn-flat"><i class="material-icons left">arrow_back</i>Back</a>
 
@@ -18,14 +27,15 @@
       <thead>
         <tr>
           <!-- Table headings -->
-          <th>Name</th>
-          <th>Walk No.</th>
-          <th>Post Code</th>
+
           <th>Address</th>
           <th>Description</th>
           <th>Date</th>
           <th>Comments</th>
           <th>Escalated</th>
+          <th>Name</th>
+          <th>Walk No.</th>
+          <th>Post Code</th>
         </tr>
       </thead>
 
@@ -33,17 +43,16 @@
         <!-- Table contents derived from database -->
         <tr>
           {% for login in logins %}{% for incident in incidents %}
-          <td>{{login.reported_by}}</td>
-          <td>{{login.walk_no}}</td>
-          <td>{{login.post_code}}</td>
           <td>{{incident.number}} {{incident.street_name}}</td>
           <td>{{incident.incident_description}}</td>
           <td>{{incident.date_reported}}</td>
           <td>{{incident.comments}}</td>
           <td>{{incident.management_aware}}</td>
+          <td>{{login.reported_by}}</td>
+          <td>{{login.walk_no}}</td>
+          <td>{{login.post_code}}</td>
           <!-- Edit and delete buttons -->
-          <td><a href="{{url_for('edit_incident', incident_id=incident._id)}}" class="waves-effect red waves-light btn">Edit</a></td>
-          <td><a href="{{url_for('delete_incident', incident_id=incident._id)}}" class="waves-effect red waves-light btn">Delete</a></td>
+          <td><a style="margin-right:2vw;" href="{{url_for('edit_incident', incident_id=incident._id)}}" class="waves-effect teal waves-light btn">Edit</a><a href="{{url_for('delete_incident', incident_id=incident._id)}}" class="waves-effect red waves-light btn">Delete</a></td>
         </tr>
         {% endfor %}{% endfor %}
       </tbody>
@@ -53,15 +62,5 @@
   </div>
 
 </div>
-<!-- Home button -->
-<div class="card-action">
-  <a class="waves-effect red waves-light yellow-text btn" href="{{ url_for('goto_home') }}">Home</a>
-</div>
-<ul class="pagination">
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
-    <li class="active"><a href="#!">1</a></li>
-    <li class="waves-effect"><a href="#!">2</a></li>
-    <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
-  </ul>
 
 {% endblock %}
