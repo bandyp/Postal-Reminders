@@ -6,13 +6,15 @@
   </div>
 </nav>
 <!-- Search bar to find streets and incidents -->
-<form>
-  <div class="input-field">
-    <input action="{{ url_for('searches') }}" name="search" id="search" type="search" required>
-    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-    <i class="material-icons">close</i>
-  </div>
-</form>
+
+    <form>
+      <div class="input-field">
+        <input action="{{ url_for('searches') }}" name="search" id="search" type="search" placeholder="Search Streets" required>
+
+        <i class="material-icons">close</i>
+      </div>
+    </form>
+
 <!-- Page heading -->
 <div class="col s12 m7">
   <h3 class="header center">Route</h3>

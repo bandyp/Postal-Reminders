@@ -56,19 +56,33 @@ def add_hazard():
 @app.route('/add_access')
 def add_access():
     # goto add access issue html template
-    return render_template("addaccess.html")
+    return render_template("addaccess.html", walk_340=mongo.db.walk_340.find())
     
 @app.route('/add_request')
 def add_request():
     # goto add request html template
-    return render_template("addrequest.html")
+    return render_template("addrequest.html", walk_340=mongo.db.walk_340.find())
 
 @app.route('/edit_incident/<incident_id>')
 def edit_incident(incident_id):
     # edit incident page
     the_incident =  mongo.db.incidents.find_one({"_id": ObjectId(incident_id)})
     mongo.db.incidents.remove({'_id': ObjectId(incident_id)})
-    return render_template('editincident.html', incident=the_incident)
+    return render_template('editincident.html', incident=the_incident, walk_340=mongo.db.walk_340.find())
+
+@app.route('/update_incident/<incident_id>', methods=["POST"])
+def update_incident(incident_id):
+    incidents = mongo.db.incidents
+    incidents.update( {'_id': ObjectId(incident_id)},
+    {
+        'number':request.form.get('number'),
+        'street_name':request.form.get('street_name'),
+        'incident_description': request.form.get('incident_description'),
+        'comments': request.form.get('comments'),
+        'date_reported': request.form.get('date_reported'),
+        'management_aware':request.form.get('management_aware')
+    })
+    return redirect(url_for('get_incidents'))
 
 @app.route('/delete_incident/<incident_id>')
 def delete_incident(incident_id):

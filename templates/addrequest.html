@@ -1,9 +1,9 @@
 {% extends 'base.html' %} {% block content %}
 <nav>
     <!-- header with home link -->
-  <div class="nav-wrapper red">
-    <a href="{{ url_for('goto_home') }}" class="brand-logo yellow-text center">Royal Mail</a>
-  </div>
+    <div class="nav-wrapper red">
+        <a href="{{ url_for('goto_home') }}" class="brand-logo yellow-text center">Royal Mail</a>
+    </div>
 </nav>
 <!-- back button with home link -->
 <a href="{{ url_for('goto_home') }}" class="waves-effect waves-light btn-flat"><i class="material-icons left">arrow_back</i>Back</a>
@@ -14,26 +14,16 @@
         <div class="row">
             <div class="input-field col s4">
                 <i class="material-icons prefix">location_on</i>
-                <input id="number" name="number" type="text" class="validate">
-                <label for="number">Number</label>
+                <input placeholder="" id="number" name="number" type="text" class="validate">
+                <label for="number">Street No.</label>
             </div>
             <div class="input-field col s8">
                 <i class="material-icons prefix">location_city</i>
                 <select id="street_name" name="street_name">
-                      <option value="" disabled selected>Choose your option</option>
-                      <option value="Milverton Gn">Milverton Gn</option>
-                      <option value="Lemington Rd">Lemington Rd</option>
-                      <option value="Horace Brightman Cl">Horace Brightman Cl</option>
-                      <option value="Lighthorn Rs">Lighthorn Rs</option>
-                      <option value="Morrel Cl">Morrel Cl</option>
-                      <option value="Quickswood">Quickswood</option>
-                      <option value="Willenhall Cl">Willenhall Cl</option>
-                      <option value="Speedwell Cl">Speedwell Cl</option>
-                      <option value="Sorrell Cl">Sorrell Cl</option>
-                      <option value="Celandine Dv">Celandine Dv</option>
-                      <option value="Lucas Gardens">Lucas Gardens</option>
-                      <option value="Freeman Av">Freeman Av</option>
-                      <option value="Whitehorse Vale">Whitehorse Vale</option>
+                      <option value="" disabled selected>Choose Road</option>
+                      {% for street in walk_340 %}
+                      <option value="{{ street.street_name }}">{{ street.street_name }}</option>
+                      {% endfor %}
                 </select>
                 <label>Street Name</label>
             </div>
@@ -52,7 +42,7 @@
                 </select>
                 <label>Description</label>
             </div>
-            
+
         </div>
         <div class="row">
             <div class="input-field col s12">
@@ -77,8 +67,8 @@
                 </label>
             </div>
             <div class="submit col s3">
-            <button class="btn waves-effect yellow-text waves-light" type="submit" name="action">Add Request</button>
+                <button class="btn waves-effect yellow-text waves-light" type="submit" name="action">Add Request</button>
             </div>
     </form>
-</div>
-{% endblock %}
+    </div>
+    {% endblock %}
