@@ -12,7 +12,7 @@ mongo = PyMongo(app)
 @app.route('/')
 @app.route('/reminders')
 def reminders():
-    return render_template("login.html", logins=mongo.db.logins.find())
+    return render_template("login.html")
 
 @app.route('/insert_login', methods=['POST'])
 def insert_login():
@@ -24,15 +24,16 @@ def insert_login():
 
 @app.route('/get_incidents')
 def get_incidents():
-    # find incidents and login details and put onto incident template
-    return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())
+    # find incidents and put onto incident template
+    return render_template("incidents.html", incidents=mongo.db.incidents.find())
 
 @app.route('/insert_hazard', methods=['POST'])
 def insert_hazard():
     # insert new hazard onto incident page
+    logins=mongo.db.logins.find()
     incidents = mongo.db.incidents
     incidents.insert_one(request.form.to_dict())
-    return redirect(url_for('get_incidents'))
+    return redirect(url_for('get_incidents'), logins)
     
 @app.route('/searches', methods=['POST'])
 def searches():
@@ -48,10 +49,11 @@ def goto_home():
     # function to return to incident page
     return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())    
 
-@app.route('/add_hazard')
-def add_hazard():
+@app.route('/add_hazard/<login_id>')
+def add_hazard(login_id):
     # goto add hazard html template
-    return render_template("addhazard.html", walk_340=mongo.db.walk_340.find())
+    new_login = mongo.db.logins.find_one({"_id": ObjectId(login_id)})
+    return render_template("addhazard.html", walk_340=mongo.db.walk_340.find(), login=new_login)
     
 @app.route('/add_access')
 def add_access():
@@ -67,7 +69,6 @@ def add_request():
 def edit_incident(incident_id):
     # edit incident page
     the_incident =  mongo.db.incidents.find_one({"_id": ObjectId(incident_id)})
-    mongo.db.incidents.remove({'_id': ObjectId(incident_id)})
     return render_template('editincident.html', incident=the_incident, walk_340=mongo.db.walk_340.find())
 
 @app.route('/update_incident/<incident_id>', methods=["POST"])
