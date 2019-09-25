@@ -25,15 +25,14 @@ def insert_login():
 @app.route('/get_incidents')
 def get_incidents():
     # find incidents and put onto incident template
-    return render_template("incidents.html", incidents=mongo.db.incidents.find())
+    return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())
 
 @app.route('/insert_hazard', methods=['POST'])
 def insert_hazard():
     # insert new hazard onto incident page
-    logins=mongo.db.logins.find()
     incidents = mongo.db.incidents
     incidents.insert_one(request.form.to_dict())
-    return redirect(url_for('get_incidents'), logins)
+    return redirect(url_for('get_incidents'))
     
 @app.route('/searches', methods=['POST'])
 def searches():
@@ -49,11 +48,10 @@ def goto_home():
     # function to return to incident page
     return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())    
 
-@app.route('/add_hazard/<login_id>')
-def add_hazard(login_id):
+@app.route('/add_hazard')
+def add_hazard():
     # goto add hazard html template
-    new_login = mongo.db.logins.find_one({"_id": ObjectId(login_id)})
-    return render_template("addhazard.html", walk_340=mongo.db.walk_340.find(), login=new_login)
+    return render_template("addhazard.html", walk_340=mongo.db.walk_340.find())
     
 @app.route('/add_access')
 def add_access():
