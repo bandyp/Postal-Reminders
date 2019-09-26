@@ -1,9 +1,11 @@
 import os
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
 
 app = Flask(__name__)
+
+app.config.from_object(__name__)
 app.config["MONGO_DBNAME"] = 'route_reminders'
 app.config["MONGO_URI"] = 'mongodb+srv://bandyp:Ema1LandreW@myfirstcluster-ehsli.mongodb.net/route_reminders?retryWrites=true&w=majority'
 
@@ -50,8 +52,10 @@ def goto_home():
 
 @app.route('/add_hazard')
 def add_hazard():
+    new_login = mongo.db.logins.find_one({"_id": ObjectId()})
+    all_logins = mongo.db.logins.find()
     # goto add hazard html template
-    return render_template("addhazard.html", walk_340=mongo.db.walk_340.find())
+    return render_template("addhazard.html", walk_340=mongo.db.walk_340.find(), login=new_login, logins=all_logins)
     
 @app.route('/add_access')
 def add_access():
