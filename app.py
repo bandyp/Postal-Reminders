@@ -50,12 +50,17 @@ def goto_home():
     # function to return to incident page
     return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())    
 
-@app.route('/add_hazard/<logins_id>')
-def add_hazard(logins_id):
+@app.route('/add_login/<login_id>')
+def add_login(login_id):
     new_login = mongo.db.logins.find_one({"_id": ObjectId()})
     all_logins = mongo.db.logins.find()
     # goto add hazard html template
-    return render_template("addhazard.html", walk_340=mongo.db.walk_340.find(), login=new_login, logins=all_logins)
+    return render_template("addhazard.html", login=new_login, logins=all_logins)
+
+@app.route('/add_hazard')
+def add_hazard():
+    # goto add hazard html template
+    return render_template("addhazard.html", walk_340=mongo.db.walk_340.find())
     
 @app.route('/add_access')
 def add_access():
