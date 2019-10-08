@@ -27,7 +27,7 @@ def insert_login():
 @app.route('/get_incidents')
 def get_incidents():
     # find incidents and put onto incident template
-    return render_template("incidents.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())
+    return render_template("incidents.html", incidents=mongo.db.incidents.find())
 
 @app.route('/insert_hazard', methods=['POST'])
 def insert_hazard():
@@ -60,7 +60,7 @@ def add_login(login_id):
 @app.route('/add_hazard')
 def add_hazard():
     # goto add hazard html template
-    return render_template("addhazard.html", walk_340=mongo.db.walk_340.find())
+    return render_template("addhazard.html", walk_341=mongo.db.walk_341.find())
     
 @app.route('/add_access')
 def add_access():

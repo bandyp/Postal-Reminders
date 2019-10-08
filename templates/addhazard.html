@@ -10,23 +10,26 @@
 <h3>Add Hazard</h3>
 <div class="row">
     <!-- form to add a new hazard -->
-    <form action="{{ url_for('add_hazard') }}" method="POST" class="col s12">
-        <form action="{{ url_for('add_login', logins_id=login._id) }}">
+    <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
+        
             <div class="row">
-                <div class="input-field col s3">
-                    <input value="{{ login.reported_by }}" placeholder="" id="reported_by" name="reported_by" type="text" class="validate">
+                <div class="input-field col s4">
+                    <i class="material-icons prefix">person</i>
+                    <input value="Mike" id="reported_by" name="reported_by" type="text" class="validate">
+                    <label>Reported</label>
                 </div>
-                <div class="input-field col s3">
-                    <input value="" id="walk_no" name="walk_no" type="text" class="validate">
+                <div class="input-field col s4">
+                    <i class="material-icons prefix">directions_walk</i>
+                    <input value="341" id="walk_no" name="walk_no" type="text" class="validate">
+                    <label>Walk ID</label>
                 </div>
-                <div class="input-field col s3">
-                    <input value="" id="post_code" name="post_code" type="text" class="validate">
-                </div>
-                <div class="submit col s3">
-                    <button class="btn waves-effect yellow-text waves-light" type="submit" name="action">Add login details</button>
+                <div class="input-field col s4">
+                    <i class="material-icons prefix">local_post_office</i>
+                    <input value="LU3" id="post_code" name="post_code" type="text" class="validate">
+                    <label>Postcode</label>
                 </div>
             </div>
-        </form>
+        
         <div class="row">
             <div class="input-field col s4">
                 <i class="material-icons prefix">location_on</i>
@@ -37,7 +40,7 @@
                 <i class="material-icons prefix">location_city</i>
                 <select id="street_name" name="street_name">
                       <option value="" disabled selected>Choose Road</option>
-                      {% for street in walk_340 %}
+                      {% for street in walk_341 %}
                       <option value="{{ street.street_name }}">{{ street.street_name }}</option>
                       {% endfor %}
                 </select>
