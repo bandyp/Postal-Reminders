@@ -19,8 +19,12 @@
                 <i class="material-icons prefix">location_city</i>
                 <select id="street_name" name="street_name" placeholder="{{incident.street_name}}">
                       <option value="" disabled selected>Choose Street Name</option>
-                     {% for street in walk_340 %}
-                      <option value="{{ street.street_name }}">{{ street.street_name }}</option>
+                      {% for street in walk_340 %}
+                          {% if street.street_name == incident.street_name %}
+                              <option value="{{ street.street_name }}" selected >{{ street.street_name }}</option>
+                          {% else %}
+                              <option value="{{ street.street_name }}">{{ street.street_name }}</option>
+                          {% endif %}
                       {% endfor %}
                 </select>
                 <label>Street Name</label>
@@ -29,8 +33,9 @@
         <div class="row">
             <div class="input-field col s12">
                 <i class="material-icons prefix">assignment</i>
-                <select id="incident_description" name="incident_description" placeholder="{{incident.incident_description}}">
+                <select id="incident_description" name="incident_description">
                     <optgroup label="Animal" id="incident_description" name="incident_type">
+                        <option value="" disabled selected>Choose new option</option>
                         <option value="Animal Hazard: Dog snapping at mail">Dog snapping at mail</option>
                         <option value="Animal Hazard: Loose Dog">Loose Dog</option>
                         <option value="Animal Hazard: Other">Other</option>
