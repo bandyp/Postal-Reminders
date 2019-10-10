@@ -7,10 +7,10 @@
 </nav>
 <!-- Search bar to find streets and incidents -->
 
-    <form>
+    <form action="{{ url_for('searches') }}" method="POST">
       <div class="input-field">
-        <input action="{{ url_for('searches') }}" name="search" id="search" type="search" placeholder="Search Streets" required>
-
+        <input name="search" id="search" type="search" placeholder="Search Streets">
+        <button class="btn btn-info red btn-small btn-site text-center " type="submit">Search</button>
         <i class="material-icons">close</i>
       </div>
     </form>
