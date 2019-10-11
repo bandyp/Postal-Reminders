@@ -56,13 +56,19 @@
         </tr>
         {% endfor %}{% endfor %}
       </tbody>
+
+      {% for results in results %} {% for key, value in results.items() %}
+      <thead>
+        <tr>
+          <th>Key: {{key}}</th>
+        </tr>
+      </thead>
+
       <tbody>
         <tr>
-          {% for results in results %}
-          {% for key, value in results.items() %}
-          <td>Key: {{key}}</td>
           <td>Value: {{value}}</td>
         </tr>
+
         {% endfor %} {% endfor %}
       </tbody>
     </table>
