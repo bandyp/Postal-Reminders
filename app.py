@@ -41,7 +41,6 @@ def searches():
     if request.method == 'POST':
         search_result = request.form.get('search')
         results = mongo.db.street_name.find({"street_name":search_result})
-        print("Hello world")
         print(results)
         return render_template("route.html", results=results) 
     else:
