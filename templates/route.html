@@ -43,7 +43,7 @@
         <!-- Table contents derived from database -->
         <tr>
           {% for login in logins %}{% for incident in incidents %}
-          <td>{{incident.number}} {{incident.street_name}}</td>
+          <td>{{incident.number}}{{result.number}} {{incident.street_name}}</td>
           <td>{{incident.incident_description}}</td>
           <td>{{incident.date_reported}}</td>
           <td>{{incident.comments}}</td>
@@ -55,6 +55,15 @@
           <td><a href="{{url_for('edit_incident', incident_id=incident._id)}}" class="waves-effect teal waves-light btn edit_button">Edit</a><a href="{{url_for('delete_incident', incident_id=incident._id)}}" class="waves-effect red waves-light btn edit_button">Delete</a></td>
         </tr>
         {% endfor %}{% endfor %}
+      </tbody>
+      <tbody>
+        <tr>
+          {% for results in results %}
+          {% for key, value in results.items() %}
+          <td>Key: {{key}}</td>
+          <td>Value: {{value}}</td>
+        </tr>
+        {% endfor %} {% endfor %}
       </tbody>
     </table>
 
