@@ -42,7 +42,7 @@ def searches():
         search_result = request.form.get('search')
         results = mongo.db.incidents.find({"street_name":search_result})
         print(results)
-        return render_template("route.html", results=results) 
+        return render_template("searched.html", results=results) 
     else:
         return redirect(url_for('get_incidents'))
 
