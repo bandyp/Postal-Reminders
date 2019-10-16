@@ -16,10 +16,9 @@
 </div>
 <div class="row">
   <div col>
-    {% for result in results %}
+    {% if results %}{% for result in results %}
     <div class="card">
       <div class="card-content">
-
         {% for key, value in result.items() %}
         <b>{{key}}: </b>{{value}},<br> {% endfor %}
       </div>
@@ -28,9 +27,14 @@
         <a href="#" class="waves-effect red waves-light btn edit_button">Delete</a>
       </div>
     </div>
-    {% endfor %}
+    {% endfor %} {% else %}
+    <div class="card">
+      <div class="card-content center">
+        <h4>No reminders found. Please check street spelling</h4>
+      </div>
+    </div>
+    {% endif %}
   </div>
-
 </div>
 
 {% endblock %}

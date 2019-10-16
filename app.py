@@ -41,12 +41,8 @@ def searches():
     if request.method == 'POST':
         search_result = request.form.get('search')
         results = mongo.db.incidents.find({"street_name":search_result})
-        counted = results.count()
-        if counted = 0
-            print(No reminders available. Please check spelling.)
-        else:    
-            print(results)
-            return render_template("searched.html", results=results) 
+        print(results)
+        return render_template("searched.html", results=results) 
     else:
         return redirect(url_for('get_incidents'))
 
