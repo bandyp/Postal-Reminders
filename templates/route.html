@@ -57,25 +57,7 @@
         {% endfor %}{% endfor %}
       </tbody>
     </table>
-    <table class="responsive-table">
-      <thead>
-        {% for result in results %} {% for key, value in result.items() %}
-        <th>
-          {{key}}
-        </th>
-        
-      </thead>  
-      <tbody>
-          <tr>
-            <td>{{value}}</td>
-          </tr>
-          {% endfor %} {% endfor %}
-        </tbody>
-    </table>
-
-
   </div>
-
 </div>
 
 {% endblock %}

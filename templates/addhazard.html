@@ -9,27 +9,28 @@
 <a href="{{ url_for('goto_home') }}" class="waves-effect waves-light btn-flat"><i class="material-icons left">arrow_back</i>Back</a>
 <h3>Add Hazard</h3>
 <div class="row">
-    <!-- form to add a new hazard -->
+    <!-- form to add a new hazard, using python function from app.py -->
     <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
-        
-            <div class="row">
-                <div class="input-field col s4">
-                    <i class="material-icons prefix">person</i>
-                    <input value="Mike" id="reported_by" name="reported_by" type="text" class="validate">
-                    <label>Reported</label>
-                </div>
-                <div class="input-field col s4">
-                    <i class="material-icons prefix">directions_walk</i>
-                    <input value="340" id="walk_no" name="walk_no" type="text" class="validate">
-                    <label>Walk ID</label>
-                </div>
-                <div class="input-field col s4">
-                    <i class="material-icons prefix">local_post_office</i>
-                    <input value="LU3" id="post_code" name="post_code" type="text" class="validate">
-                    <label>Postcode</label>
-                </div>
+
+        <div class="row">
+            <!-- form to add login details -->
+            <div class="input-field col s4">
+                <i class="material-icons prefix">person</i>
+                <input value="Mike" id="reported_by" name="reported_by" type="text" class="validate">
+                <label>Reported</label>
             </div>
-        
+            <div class="input-field col s4">
+                <i class="material-icons prefix">directions_walk</i>
+                <input value="340" id="walk_no" name="walk_no" type="text" class="validate">
+                <label>Walk ID</label>
+            </div>
+            <div class="input-field col s4">
+                <i class="material-icons prefix">local_post_office</i>
+                <input value="LU3" id="post_code" name="post_code" type="text" class="validate">
+                <label>Postcode</label>
+            </div>
+        </div>
+
         <div class="row">
             <div class="input-field col s4">
                 <i class="material-icons prefix">location_on</i>
@@ -40,6 +41,7 @@
                 <i class="material-icons prefix">location_city</i>
                 <select id="street_name" name="street_name">
                       <option value="" disabled selected>Choose Road</option>
+                      <!-- linking to mongodb to get street names in the route -->
                       {% for street in walk_340 %}
                       <option value="{{ street.street_name }}">{{ street.street_name }}</option>
                       {% endfor %}
@@ -49,6 +51,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
+                <!-- options for hazard issues in a select option -->
                 <i class="material-icons prefix">assignment</i>
                 <select id="incident_description" name="incident_description">
                     <optgroup label="Animal" id="incident_description" name="incident_type">
@@ -75,6 +78,7 @@
         </div>
         <div class="row">
             <div class="input-field col s12">
+                <!-- option to add comments to elaborate on hazard -->
                 <i class="material-icons prefix">mode_edit</i>
                 <input id="comments" name="comments" type="text" class="validate">
                 <label for="Comments">Comments</label>
@@ -83,6 +87,7 @@
         <div class="row">
 
             <div class="input-field col s6">
+                <!-- add date -->
                 <i class="material-icons prefix">today</i>
                 <input id="date_reported" name="date_reported" type="text" class="datepicker">
                 <label for="icon_prefix">Date</label>
@@ -90,12 +95,14 @@
 
             <div class="switch col s3">
                 <label>
+                    <!-- add escalated switch -->
                     <input id="management_aware" name="management_aware" type="checkbox">
                     <span class="lever right"></span>
                       Escalated
                 </label>
             </div>
             <div class="submit col s3">
+                <!-- button to activate action -->
                 <button class="btn waves-effect yellow-text waves-light" type="submit" name="action">Add Hazard</button>
             </div>
         </div>

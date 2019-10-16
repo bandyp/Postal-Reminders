@@ -14,6 +14,7 @@ to help maintain consistency and minimise the risk to the postal worker.
 
 ## UX
 ![Postal Reminders](Responsive_Postal.PNG)
+
 This needed to be very simple and quick to use, otherwise it would not be utilised. All postal workers 
 carry a PDA to help log parcel deliveries. They also track the posty's location through GPS positioning. This 
 guarantees the post made it to its destination. This app is designed to work on the PDA requiring no extra 
