@@ -11,6 +11,26 @@
 <div class="row">
     <!-- form to add a new request -->
     <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
+        
+         <div class="row">
+            <!-- form to add login details -->
+            <div class="input-field col s4">
+                <i class="material-icons prefix">person</i>
+                <input value="Mike" id="reported_by" name="reported_by" type="text" class="validate">
+                <label>Reported</label>
+            </div>
+            <div class="input-field col s4">
+                <i class="material-icons prefix">directions_walk</i>
+                <input value="340" id="walk_no" name="walk_no" type="text" class="validate">
+                <label>Walk ID</label>
+            </div>
+            <div class="input-field col s4">
+                <i class="material-icons prefix">local_post_office</i>
+                <input value="LU3" id="post_code" name="post_code" type="text" class="validate">
+                <label>Postcode</label>
+            </div>
+        </div>
+        
         <div class="row">
             <div class="input-field col s4">
                 <i class="material-icons prefix">location_on</i>
