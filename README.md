@@ -13,7 +13,7 @@ is lost. So here is a simple app to help log all the hazards, access issues and 
 to help maintain consistency and minimise the risk to the postal worker.
 
 ## UX
-![Postal Reminders](Responsive_Postal.PNG)
+![Postal Reminders](library/Responsive_Postal.PNG)
 
 This needed to be very simple and quick to use, otherwise it would not be utilised. All postal workers 
 carry a PDA to help log parcel deliveries. They also track the posty's location through GPS positioning. This 
@@ -83,6 +83,9 @@ There could also be an incentive introduced for those PW's who use the app the m
 I tested myself to ensure the moving from one page to another was seemless and 
 that information was correctly logged to MondoDB.
 I also gave it to some Postal workers for valualble input on the main reminders to use.
+
+One small bug which might be an issue with Chrome is with the date picker and comment input field. 
+It works, but is a little 'clunky'. It's not as seemless as the rest of the form.
 
 ### Automated Tests
 * Chrome Developer Tools - to ensure all screen sizes responded correctly

@@ -17,21 +17,19 @@
 <div class="row">
   <div col>
     <!-- using jinga to loop through results and key -->
-    {% if results %}{% for result in results %}
+    {% if results %} {% for result in results %}
     <div class="card">
       <div class="card-content">
         {% for key, value in result.items() %}
-        <b>{{key}}: </b>{{value}},<br> {% endfor %}
+        <strong>{{key}}: </strong>{{value}},<br> {% endfor %}
       </div>
     </div>
-    {% endfor %} {% else %}
-    <div class="card">
-      <div class="card-content center">
-        <h4>No reminders found. Please check street spelling</h4>
-      </div>
-    </div>
-    {% endif %}
+
   </div>
+  {% endfor %} {% else %}
+  <div class="card-content center">
+    <h4>No reminders found. Please check street spelling</h4>
+  </div>{% endif %}
 </div>
 <!-- Button with link back to home -->
 <div class="row">

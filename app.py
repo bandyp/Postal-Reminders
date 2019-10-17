@@ -2,12 +2,14 @@ import os
 from flask import Flask, render_template, redirect, request, url_for, session
 from flask_pymongo import PyMongo
 from bson.objectid import ObjectId
+from bson.json_util import dumps, loads
+
 
 app = Flask(__name__)
 
 app.config.from_object(__name__)
 app.config["MONGO_DBNAME"] = 'route_reminders'
-app.config["MONGO_URI"] = 'mongodb+srv://bandyp:Ema1LandreW@myfirstcluster-ehsli.mongodb.net/route_reminders?retryWrites=true&w=majority'
+app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
 
 mongo = PyMongo(app)
 
@@ -38,11 +40,12 @@ def insert_hazard():
     
 @app.route('/searches', methods=['POST'])
 def searches():
+    # post the street name from the search form. 
     if request.method == 'POST':
         search_result = request.form.get('search')
         results = mongo.db.incidents.find({"street_name":search_result})
-        print(results)
-        return render_template("searched.html", results=results) 
+        # print results of the search to the searched template
+        return render_template("searched.html", results=loads(dumps(results))) 
     else:
         return redirect(url_for('get_incidents'))
 
@@ -75,6 +78,7 @@ def edit_incident(incident_id):
 @app.route('/update_incident/<incident_id>', methods=["POST"])
 def update_incident(incident_id):
     incidents = mongo.db.incidents
+    # update incident after editing
     incidents.update( {'_id': ObjectId(incident_id)},
     {
         'number':request.form.get('number'),

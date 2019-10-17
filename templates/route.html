@@ -10,13 +10,15 @@
   </nav>
 </div>
 <!-- Search bar to find streets and incidents -->
-<form>
-  <div class="input-field">
-    <input action="{{ url_for('searches') }}" name="search" id="search" type="search" required>
-    <label class="label-icon" for="search"><i class="material-icons">search</i></label>
-    <i class="material-icons">close</i>
-  </div>
-</form>
+<div>
+  <form action="{{ url_for('searches') }}" method="POST">
+    <div class="input-field">
+      <input name="search" id="search" type="search" placeholder="Search Streets">
+      <button class="btn btn-info red btn-small btn-site text-center" type="submit">Search</button>
+      <i class="material-icons">close</i>
+    </div>
+  </form>
+</div>
 
 <!-- Button with link back to home -->
 <a href="{{ url_for('goto_home') }}" class="waves-effect waves-light btn-flat"><i class="material-icons left">arrow_back</i>Back</a>

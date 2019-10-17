@@ -1,6 +1,5 @@
 #expand {
     margin-top: 1vh;
-    margin-bottom: 1vh;
 }
 
 body {
@@ -16,4 +15,15 @@ main {
 .btn {
      margin:1vw;
      width: 100px;
+}
+
+footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.incident_button {
+    margin-bottom: 8vh;
 }
