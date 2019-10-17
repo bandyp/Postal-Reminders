@@ -30,7 +30,7 @@ the next time they are in the area. A search bar helps narrow the field to the s
 The app is designed to be on a mobile size screen similar to the PDA. It can also be easily viewed 
 by a manager back in the office on a laptop. Hense, it is fully responsive on all size screens.
 
-The colours chosen are those of Royal Mail.
+The colours chosen are those of Royal Mail. [Click here](library/Postal.pdf) to see the mock ups.
 
 ## Users
 The predominent user is the Postman or women, especially those new to the route. Also, experienced 
