@@ -9,7 +9,7 @@ app = Flask(__name__)
 
 app.config.from_object(__name__)
 app.config["MONGO_DBNAME"] = 'route_reminders'
-app.config["MONGO_URI"] = os.environ.get('MONGO_URI')
+app.config["MONGO_URI"] = 'mongodb+srv://bandyp:Ema1LandreW@myfirstcluster-ehsli.mongodb.net/hazard_manager?retryWrites=true&w=majority'
 
 mongo = PyMongo(app)
 
