@@ -9,7 +9,7 @@
 <h3>Edit Reminder</h3>
 <div class="row">
     <!-- form to edit a reminder information -->
-    <form action="{{ url_for('insert_hazard') }}" method="POST" class="col s12">
+    <form action="{{ url_for('update_incident', incident_id=incident._id) }}" method="POST" class="col s12">
         <div class="row">
             <div class="input-field col s4">
                 <i class="material-icons prefix">location_on</i>
