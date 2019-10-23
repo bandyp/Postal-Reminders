@@ -13,7 +13,7 @@ is lost. So here is a simple app to help log all the hazards, access issues and 
 to help maintain consistency and minimise the risk to the postal worker.
 
 ## UX
-![Postal Reminders](library/Responsive_postal.PNG){:target="_blank"}
+![Postal Reminders](library/Responsive_postal.PNG)
 
 This needed to be very simple and quick to use, otherwise it would not be utilised. All postal workers 
 carry a PDA to help log parcel deliveries. They also track the Posty's location through GPS positioning. This 
@@ -30,7 +30,7 @@ the next time they are in the area. A search bar helps narrow the field to the s
 The app is designed to be on a mobile size screen similar to the PDA. It can also be easily viewed 
 by a manager back in the office on a laptop. Hense, it is fully responsive on all size screens.
 
-The colours chosen are those of Royal Mail. [Click here](library/Postal.pdf){:target="_blank"} to see the mock ups.
+The colours chosen are those of Royal Mail. [Click here](library/Postal.pdf) to see the mock ups.
 
 ## Users
 The predominent user is the Postman or women, especially those new to the route. Also, experienced 
@@ -64,18 +64,18 @@ As the friendly local PW is the eyes and ears of any cummunity, this app could b
 There could also be an incentive introduced for those PW's who use the app the most.
 
 ## Technology Used
-* HTML - for the structure of the content of the page
-* Materialize - the framwork used to deliver the style and responsiveness
-* CSS3 - for making small adjustments to the materialize framework
-* Javascript - to initialise some components on the Materialize framework
-* Balsamiq - for the wireframe
-* Git - for version control
-* GitHub - to host the repository
-* GitHup Pages - Website hosting.
-* Heroku - to deploy the app
-* MondoDB - to store the collections
-* Flask-Pymongo - for interaction with the front end
-* Python - for back end implementation
+* [HTML](https://www.w3schools.com/html/) - for the structure of the content of the page
+* [Materialize](https://materializecss.com/) - the framwork used to deliver the style and responsiveness
+* [CSS3](https://www.w3schools.com/css/) - for making small adjustments to the materialize framework
+* [Javascript](https://www.javascript.com/) - to initialise some components on the Materialize framework
+* [Balsamiq](https://balsamiq.com/wireframes/) - for the wireframe
+* [Git](https://git-scm.com/) - for version control
+* [GitHub](https://github.com/) - to host the repository
+* [GitHup Pages](https://pages.github.com/) - Website hosting.
+* [Heroku](https://heroku.com) - to deploy the app
+* [MondoDB](https://www.mongodb.com/) - to store the collections
+* [Flask-Pymongo](https://flask-pymongo.readthedocs.io/en/latest/) - for interaction with the front end
+* [Python](https://www.python.org/) - for back end implementation
 
 ## Testing
 
@@ -102,7 +102,7 @@ The project was then deployed to Heroku through the following steps.
 * The Git repository was added using: git push heroku master
 
 To deploy your own version:
-* Visit the repository [here](https://github.com/bandyp/Postal-Reminders){:target="_blank"}
+* Visit the repository [here](https://github.com/bandyp/Postal-Reminders)
 * Click 'clone' to copy
 * Open your IDE
 * Type 'git clone https://github.com/bandyp/Postal-Reminders.git' in the terminal window of the root directory
