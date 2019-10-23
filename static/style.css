@@ -11,6 +11,11 @@ main {
     flex: 1 0 auto;
 }
 
+/* raised main page to be higher above footer */
+.page {
+    margin-bottom: 10vh;
+}
+
 /* to make all buttons consistent */
 .btn {
      margin:1vw;
