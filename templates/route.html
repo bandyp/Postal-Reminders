@@ -1,19 +1,11 @@
 {% extends 'base.html' %} {% block content %}
 
 
-<div class="row">
-  <nav col s9>
-    <!-- Page header with link on logo to home -->
-    <div class="nav-wrapper red">
-      <a href="{{ url_for('goto_home') }}" class="brand-logo yellow-text center">Royal Mail</a>
-    </div>
-  </nav>
-</div>
 <!-- Search bar to find streets and incidents -->
 <div>
   <form action="{{ url_for('searches') }}" method="POST">
     <div class="input-field">
-      <input name="search" id="search" type="search" placeholder="Search Streets">
+      <input name="search" id="search" type="search" placeholder="Search By Street">
       <button class="btn btn-info red btn-small btn-site text-center" type="submit">Search</button>
       <i class="material-icons">close</i>
     </div>

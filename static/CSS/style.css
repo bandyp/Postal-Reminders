@@ -15,6 +15,7 @@ main {
 .btn {
      margin:1vw;
      width: 100px;
+     z-index: -1;
 }
 
 footer {
@@ -22,8 +23,11 @@ footer {
     bottom: 0;
     left: 0;
     width: 100%;
+    z-index: +1000;
 }
 
 .incident_button {
     margin-bottom: 8vh;
 }
+
+

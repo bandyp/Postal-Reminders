@@ -2,13 +2,13 @@
 Last year alone over 2500 postal workers suffered from dog bites. That, and other hazards are avoidable 
 with the right process in place.
 
-Currently, there is a manual process which is difficult and timely.  
+Currently, there is a manual process which is difficult and timely, this could be improved upon using technology that they already use. 
 
 Also, a PW (postal worker) with a regular route is an integral part of that neighbourhood. They know the 
 best houses to deliver parcels when the right address is not home. 
-They know the many requests that customers they see on their route might have, also they are aware if something is not quite right. 
+They know the many requests that customers they see on their route might have, also they are aware if something is not quite right along their walk. 
 
-What happens on their day off or if a new posty takes over their area? All that information
+What happens on their day off or if a new Posty takes over their area? All that information
 is lost. So here is a simple app to help log all the hazards, access issues and customer requests 
 to help maintain consistency and minimise the risk to the postal worker.
 
@@ -16,7 +16,7 @@ to help maintain consistency and minimise the risk to the postal worker.
 ![Postal Reminders](library/Responsive_Postal.PNG)
 
 This needed to be very simple and quick to use, otherwise it would not be utilised. All postal workers 
-carry a PDA to help log parcel deliveries. They also track the posty's location through GPS positioning. This 
+carry a PDA to help log parcel deliveries. They also track the Posty's location through GPS positioning. This 
 guarantees the post made it to its destination. This app is designed to work on the PDA requiring no extra 
 equipment to the already overloaded postal worker.
 

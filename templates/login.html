@@ -1,46 +1,88 @@
-{% extends 'base.html' %} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
-<div class="row">
-    <!-- Login page -->
-    <div class="col s12 m4 offset-m4">
-        <!-- start of from showing what action to take - posting by function -->
-        <form action="{{ url_for('insert_login') }}" method="POST" class="col s12">
-            <div class="card">
-                <div class="card-action red center yellow-text">
-                    <h4>Login</h4>
-                </div>
-                <div class="card-content">
+<head>
+    <title>Postal Reminders</title>
 
-                    <!-- input fields -->
-                    <div class="form-field">
-                        <label for="reported_by">Staff Name</label>
-                        <input value="Mike" type="text" id="reported_by" name="reported_by">
-                    </div>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-                    <!-- select option for walk number -->
-                    <div class="form-field">
-                        <label>Walk Number</label>
-                        <select id="walk_no" name="walk_no">
+    <!-- Framework CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS/style.css') }}" type="text/css" />
+
+    <title>Postal</title>
+</head>
+
+<body>
+    <!-- links for template inheritance -->
+    <div class="container">
+        <div class="row">
+            <!-- Login page -->
+            <div class="col s12 m4 offset-m4">
+                <!-- start of from showing what action to take - posting by function -->
+                <form action="{{ url_for('insert_login') }}" method="POST" class="col s12">
+                    <div class="card">
+                        <div class="card-action red center yellow-text">
+                            <h4>Login</h4>
+                        </div>
+                        <div class="card-content">
+
+                            <!-- input fields -->
+                            <div class="form-field">
+                                <label for="reported_by">Staff Name</label>
+                                <input value="Mike" type="text" id="reported_by" name="reported_by">
+                            </div>
+
+                            <!-- select option for walk number -->
+                            <div class="form-field">
+                                <label>Walk Number</label>
+                                <select id="walk_no" name="walk_no">
                               <option value="341">341</option>
                         </select>
-                    </div><br>
-                    
-                    <!-- select option for post code area -->
-                    <div class="form-field">
-                        <label for="post_code">Post code</label>
-                        <select id="post_code" name="post_code">
+                            </div><br>
+
+                            <!-- select option for post code area -->
+                            <div class="form-field">
+                                <label for="post_code">Post code</label>
+                                <select id="post_code" name="post_code">
                               <option value="LU3">LU3</option>
                         </select>
-                    </div><br>
+                            </div><br>
 
-                    <div class="form-field white-text center-align">
-                        <button class="btn waves-effect yellow-text red waves-light" type="submit" name="action">Login</button>
+                            <div class="form-field white-text center-align">
+                                <button class="btn waves-effect yellow-text red waves-light" type="submit" name="action">Login</button>
+                            </div>
+
+                        </div>
                     </div>
-
-                </div>
+                </form>
             </div>
-        </form>
+        </div>
     </div>
-</div>
+    <footer id="expand" class="page-footer red yellow-text">
+        <div class="container">
+            © 2019 Copyright Andrew Phillips
+            <a class="yellow-text red right" href="https://www.myroyalmail.com/Contacts">Contacts</a>
+        </div>
+    </footer>
+    <!-- cdnjs for script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <!-- initialize materialise components -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
 
-{% endblock %}
+        document.addEventListener('DOMContentLoaded', function() {
+            var elems = document.querySelectorAll('.datepicker');
+            var instances = M.Datepicker.init(elems);
+        });
+    </script>
+</body>
+
+</html>

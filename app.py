@@ -101,9 +101,12 @@ def see_route():
     # function to view expanded table
     return render_template("route.html", incidents=mongo.db.incidents.find(), logins=mongo.db.logins.find())
 
+@app.route('/see_login')
+def see_login():
+    # function to view expanded table
+    return render_template("login.html")
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
             debug=True)
-            
-            

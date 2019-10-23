@@ -3,7 +3,7 @@
 
 <head>
   <title>Postal Reminders</title>
-  
+
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -19,6 +19,15 @@
 <body>
   <!-- links for template inheritance -->
   <div class="container">
+    <!-- Page header -->
+    <nav>
+      <div class="nav-wrapper red">
+        <a href="{{ url_for('goto_home')}}" class="brand-logo yellow-text center">Royal Mail</a>
+        <ul id="nav" class="right">
+          <li><a href="{{ url_for('see_login')}}">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
     {% block content %} {% endblock %}
   </div>
   <footer id="expand" class="page-footer red yellow-text">
