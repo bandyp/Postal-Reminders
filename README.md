@@ -13,7 +13,7 @@ is lost. So here is a simple app to help log all the hazards, access issues and 
 to help maintain consistency and minimise the risk to the postal worker.
 
 ## UX
-![Postal Reminders](library/Responsive_Postal.PNG)
+![Postal Reminders](library/Responsive_postal.PNG){:target="_blank"}
 
 This needed to be very simple and quick to use, otherwise it would not be utilised. All postal workers 
 carry a PDA to help log parcel deliveries. They also track the Posty's location through GPS positioning. This 
@@ -30,7 +30,7 @@ the next time they are in the area. A search bar helps narrow the field to the s
 The app is designed to be on a mobile size screen similar to the PDA. It can also be easily viewed 
 by a manager back in the office on a laptop. Hense, it is fully responsive on all size screens.
 
-The colours chosen are those of Royal Mail. [Click here](library/Postal.pdf) to see the mock ups.
+The colours chosen are those of Royal Mail. [Click here](library/Postal.pdf){:target="_blank"} to see the mock ups.
 
 ## Users
 The predominent user is the Postman or women, especially those new to the route. Also, experienced 
@@ -102,7 +102,7 @@ The project was then deployed to Heroku through the following steps.
 * The Git repository was added using: git push heroku master
 
 To deploy your own version:
-* Visit the repository [here](https://github.com/bandyp/Postal-Reminders)
+* Visit the repository [here](https://github.com/bandyp/Postal-Reminders){:target="_blank"}
 * Click 'clone' to copy
 * Open your IDE
 * Type 'git clone https://github.com/bandyp/Postal-Reminders.git' in the terminal window of the root directory
