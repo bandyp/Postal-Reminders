@@ -1,23 +1,24 @@
-#expand {
-    margin-top: 1vh;
-}
 
+/* to allow for footer */
 body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
 }
 
+/* to allow for footer */
 main {
     flex: 1 0 auto;
 }
 
+/* to make all buttons consistent */
 .btn {
      margin:1vw;
      width: 100px;
      z-index: -1;
 }
 
+/* elements of footer */
 footer {
     position: fixed;
     bottom: 0;
@@ -26,6 +27,7 @@ footer {
     z-index: +1000;
 }
 
+/* raise the button to be higher than the footer */
 .incident_button {
     margin-bottom: 8vh;
 }

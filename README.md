@@ -44,16 +44,18 @@ if adequate reporting of hazzards, access issues and customer requests are being
 * A Postal worker sees that the elderly resident who they have delivered to every day for years, is now not answering for their deliveries. Prompting a call to local health workers.
 
 ## Features
-Each main heading brings you to a form with mainly select options. This allows the user to quickly enter information.
-They can enter in more comments if needed when they get back to the van where they are out of the elements and not carrying a heavy bag.
-
 There is a condensed table which shows the basic information - Address, reminder and comments. One extra click
 brings them to the full table, where they can delete or edit. 
+
+The Nav bar at the top will let the user return to the incidents page through clicking the logo, or return to the login form by clicking logout.
 
 A stylish button in the bottom corner (nearest the thumb, as the PDA is usually carried in the right hand) allows 
 the user to log information via a form.
 
-A search bar on the home page and the expended route page helps narrow the selection to the street they are on.
+Each main heading brings you to a form with mainly select options. This allows the user to quickly enter information.
+They can enter in more comments if needed when they get back to the van where they are out of the elements and not carrying a heavy bag.
+
+A search bar on the home page and the expanded route page helps narrow the selection to the street they are on.
 
 In future, I'd like to incorporate the GPS on the PDA to alert a Postal Worker when they were approaching an address with a reminder.
 
