@@ -8,7 +8,7 @@
   {% if results %} {% for result in results %}
   <div col>
     <!-- using jinga to loop through results and key -->
-    
+
     <div class="card">
       <div class="card-content">
         {% for key, value in result.items() %}
@@ -17,8 +17,10 @@
     </div>
   </div>
   {% endfor %} {% else %}
-  <div class="card-content center">
-    <h4>No reminders found. Please check street spelling</h4>
+  <div class="card">
+    <div class="card-content">
+      <h4>No reminders found. Please check street spelling</h4>
+    </div>
   </div>
 </div>{% endif %}
 
