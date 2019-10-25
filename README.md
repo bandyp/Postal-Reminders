@@ -55,9 +55,11 @@ the user to log information via a form.
 Each main heading brings you to a form with mainly select options. This allows the user to quickly enter information.
 They can enter in more comments if needed when they get back to the van where they are out of the elements and not carrying a heavy bag.
 
-A search bar on the home page and the expanded route page helps narrow the selection to the street they are on.
+A search bar on the home page and the expanded route page helps narrow the selection to the street they are on. In future I would stylized 
+this in colours depending on incident type. Also, I would remove the ID number from the output shown on screen.
 
-In future, I'd like to incorporate the GPS on the PDA to alert a Postal Worker when they were approaching an address with a reminder.
+In future, I'd like to incorporate the GPS on the PDA to alert a Postal Worker when they were approaching an address with a reminder. 
+Also, this could help prompt the user on the correct address to pick when entering any reminders. 
 
 Also, I would like to use the Royal Mail database for all routes, through the login process. So that it could be used across the country.
 
