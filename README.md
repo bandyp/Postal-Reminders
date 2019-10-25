@@ -111,6 +111,8 @@ To deploy your own version:
 * Open your IDE
 * Type 'git clone https://github.com/bandyp/Postal-Reminders.git' in the terminal window of the root directory
 
+Take a walk through the reminder app [here](https://postal-hazards-uk.herokuapp.com/)
+
 ## Credits
 Code institue mentor Suen Owonikoko
 
